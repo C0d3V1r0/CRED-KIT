@@ -1,0 +1,247 @@
+[
+  {
+    "id": "cybereye_basic",
+    "name": "Базовый киберглаз",
+    "name_en": "Basic Cybereye",
+    "description": "Стандартная замена глаза с улучшенным зрением",
+    "description_en": "Standard eye replacement with improved vision",
+    "type": "standard",
+    "cost": 100,
+    "hl": "2d6",
+    "slot": "head_eye",
+    "effects": {
+      "perception": "+1"
+    }
+  },
+  {
+    "id": "cybereye_thermo",
+    "name": "Термоглаз",
+    "name_en": "Thermographic Cybereye",
+    "description": "Киберглаз с тепловизором",
+    "description_en": "Cybereye with thermal vision",
+    "type": "standard",
+    "cost": 500,
+    "hl": "2d6",
+    "slot": "head_eye",
+    "effects": {
+      "perception": "+2",
+      "thermal_vision": true
+    },
+    "incompatible": ["cybereye_basic"]
+  },
+  {
+    "id": "cyberarm_basic_l",
+    "name": "Базовый киберрука (левая)",
+    "name_en": "Basic Cyberarm (Left)",
+    "description": "Усиленная механическая рука",
+    "description_en": "Reinforced mechanical arm",
+    "type": "standard",
+    "cost": 500,
+    "hl": "2d6",
+    "slot": "arm_l_forearm",
+    "effects": {
+      "strength": "+1"
+    }
+  },
+  {
+    "id": "cyberarm_basic_r",
+    "name": "Базовый киберрука (правая)",
+    "name_en": "Basic Cyberarm (Right)",
+    "description": "Усиленная механическая рука",
+    "description_en": "Reinforced mechanical arm",
+    "type": "standard",
+    "cost": 500,
+    "hl": "2d6",
+    "slot": "arm_r_forearm",
+    "effects": {
+      "strength": "+1"
+    }
+  },
+  {
+    "id": "cyberarm_militech_l",
+    "name": "Киберрука Militech (левая)",
+    "name_en": "Militech Cyberarm (Left)",
+    "description": "Военная модель киберруки",
+    "description_en": "Military-grade cyberarm model",
+    "type": "standard",
+    "cost": 1000,
+    "hl": "4d6",
+    "slot": "arm_l_forearm",
+    "effects": {
+      "strength": "+2",
+      "Athletics": "+1"
+    }
+  },
+  {
+    "id": "cyberarm_militech_r",
+    "name": "Киберрука Militech (правая)",
+    "name_en": "Militech Cyberarm (Right)",
+    "description": "Военная модель киберруки",
+    "description_en": "Military-grade cyberarm model",
+    "type": "standard",
+    "cost": 1000,
+    "hl": "4d6",
+    "slot": "arm_r_forearm",
+    "effects": {
+      "strength": "+2",
+      "Athletics": "+1"
+    }
+  },
+  {
+    "id": "cyberhand_l",
+    "name": "Киберкисть (левая)",
+    "name_en": "Cyberhand (Left)",
+    "description": "Улучшенная механическая кисть",
+    "description_en": "Enhanced mechanical hand",
+    "type": "standard",
+    "cost": 300,
+    "hl": "2d6",
+    "slot": "arm_l_hand",
+    "effects": {
+      "dexterity": "+1"
+    }
+  },
+  {
+    "id": "cyberhand_r",
+    "name": "Киберкисть (правая)",
+    "name_en": "Cyberhand (Right)",
+    "description": "Улучшенная механическая кисть",
+    "description_en": "Enhanced mechanical hand",
+    "type": "standard",
+    "cost": 300,
+    "hl": "2d6",
+    "slot": "arm_r_hand",
+    "effects": {
+      "dexterity": "+1"
+    }
+  },
+  {
+    "id": "neural_link",
+    "name": "Нейролинк",
+    "name_en": "Neural Link",
+    "description": "Интерфейс для подключения к сети",
+    "description_en": "Interface implant for network access",
+    "type": "standard",
+    "cost": 1000,
+    "hl": "4d6",
+    "slot": "head_brain",
+    "effects": {
+      "interface": "+1"
+    }
+  },
+  {
+    "id": "muscle_booster",
+    "name": "Мышечный усилитель",
+    "name_en": "Muscle Booster",
+    "description": "Усилитель мышечной массы",
+    "description_en": "Muscle enhancement implant",
+    "type": "standard",
+    "cost": 500,
+    "hl": "2d6",
+    "slot": "torso_skeleton",
+    "effects": {
+      "Athletics": "+2"
+    }
+  },
+  {
+    "id": "kerenzikov_l",
+    "name": "Керензиков (левый)",
+    "name_en": "Kerenzikov (Left)",
+    "description": "Система стабилизации для ног",
+    "description_en": "Leg stabilization system",
+    "type": "standard",
+    "cost": 1000,
+    "hl": "4d6",
+    "slot": "leg_l_calf",
+    "effects": {
+      "evasion": "+2",
+      "dodge": "+1"
+    }
+  },
+  {
+    "id": "kerenzikov_r",
+    "name": "Керензиков (правый)",
+    "name_en": "Kerenzikov (Right)",
+    "description": "Система стабилизации для ног",
+    "description_en": "Leg stabilization system",
+    "type": "standard",
+    "cost": 1000,
+    "hl": "4d6",
+    "slot": "leg_r_calf",
+    "effects": {
+      "evasion": "+2",
+      "dodge": "+1"
+    }
+  },
+  {
+    "id": "leg_mod_l",
+    "name": "Ножной модификатор (левый)",
+    "name_en": "Leg Modifier (Left)",
+    "description": "Улучшение для ног",
+    "description_en": "Leg mobility enhancement",
+    "type": "standard",
+    "cost": 400,
+    "hl": "2d6",
+    "slot": "leg_l_stamp",
+    "effects": {
+      "movement": "+1"
+    }
+  },
+  {
+    "id": "leg_mod_r",
+    "name": "Ножной модификатор (правый)",
+    "name_en": "Leg Modifier (Right)",
+    "description": "Улучшение для ног",
+    "description_en": "Leg mobility enhancement",
+    "type": "standard",
+    "cost": 400,
+    "hl": "2d6",
+    "slot": "leg_r_stamp",
+    "effects": {
+      "movement": "+1"
+    }
+  },
+  {
+    "id": "sandevistan",
+    "name": "Сандевистан",
+    "name_en": "Sandevistan",
+    "description": "Система ускорения реакций",
+    "description_en": "Reflex acceleration system",
+    "type": "standard",
+    "cost": 1000,
+    "hl": "4d6",
+    "slot": "torso_skeleton",
+    "effects": {
+      "reflex": "+2",
+      "initiative": "+2"
+    }
+  },
+  {
+    "id": "nasal_filters",
+    "name": "Носовые фильтры",
+    "name_en": "Nasal Filters",
+    "description": "Фильтры для дыхания в загрязнённой среде",
+    "description_en": "Breathing filters for polluted environments",
+    "type": "standard",
+    "cost": 100,
+    "hl": "2d6",
+    "slot": "head_other",
+    "effects": {
+      "resistance_poison": "+2"
+    }
+  },
+  {
+    "id": "audio_amp",
+    "name": "Аудио-усилитель",
+    "name_en": "Audio Amplifier",
+    "description": "Усилитель слуха",
+    "description_en": "Hearing enhancement implant",
+    "type": "standard",
+    "cost": 100,
+    "hl": "2d6",
+    "slot": "head_ear",
+    "effects": {
+      "hearing": "+2"
+    }
+  }
+]

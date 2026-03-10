@@ -1,0 +1,121 @@
+{
+  "gear": {
+    "medkit": {
+      "id": "medkit",
+      "name": "Аптечка",
+      "description": "Базовая аптечка. Восстанавливает HP.",
+      "type": "medical",
+      "effect": "+10 HP",
+      "cost": 10,
+      "weight": 0.5,
+      "single_use": true,
+      "availability": "common"
+    },
+    "super_medkit": {
+      "id": "super_medkit",
+      "name": "Супер-аптечка",
+      "description": "Профессиональная аптечка. Сильный эффект.",
+      "type": "medical",
+      "effect": "+30 HP",
+      "cost": 50,
+      "weight": 1,
+      "single_use": true,
+      "availability": "common"
+    },
+    "stimpack": {
+      "id": "stimpack",
+      "name": "Стимпак",
+      "description": "Допинг. Временное ускорение.",
+      "type": "drug",
+      "effect": "+2 к REF на 1 минуту",
+      "cost": 20,
+      "weight": 0.1,
+      "single_use": true,
+      "side_effects": "-2 к TECH после окончания",
+      "availability": "common"
+    },
+    "grenade_frag": {
+      "id": "grenade_frag",
+      "name": "Осколочная граната",
+      "description": "Классическая граната.",
+      "type": "explosive",
+      "damage": "8d6",
+      "radius": 3,
+      "cost": 30,
+      "weight": 0.5,
+      "single_use": true,
+      "availability": "uncommon"
+    },
+    "grenade_flash": {
+      "id": "grenade_flash",
+      "name": "Светошумовая граната",
+      "description": "Ослепляет и оглушает.",
+      "type": "explosive",
+      "effect": "Ослепление на 1d6 раундов",
+      "cost": 25,
+      "weight": 0.3,
+      "single_use": true,
+      "availability": "uncommon"
+    },
+    "cyberdeck_basic": {
+      "id": "cyberdeck_basic",
+      "name": "Нейролинк \"Новичок\"",
+      "description": "Базовый нейролинк для начинающих нетраннеров.",
+      "type": "cyberware",
+      "cost": 100,
+      "weight": 0.5,
+      "availability": "common"
+    },
+    "optical_camo": {
+      "id": "optical_camo",
+      "name": "Оптический камуфляж",
+      "description": "Делает невидимым на 30 секунд.",
+      "type": "gadget",
+      "effect": "Невидимость 30 сек",
+      "cost": 500,
+      "weight": 0.5,
+      "charges": 3,
+      "availability": "rare"
+    },
+    "first_aid_kit": {
+      "id": "first_aid_kit",
+      "name": "Набор первой помощи",
+      "description": "Полный набор для оказания первой помощи.",
+      "type": "medical",
+      "effect": "Можно использовать 3 раза",
+      "cost": 30,
+      "weight": 2,
+      "single_use": false,
+      "availability": "common"
+    },
+    "antiair_drone": {
+      "id": "antiair_drone",
+      "name": "Дрон \"Страж\"",
+      "description": "Автономный дрон. Атакует врагов.",
+      "type": "drone",
+      "effect": "Атакует с +5, 3d6 урона",
+      "cost": 800,
+      "weight": 5,
+      "charges": 5,
+      "availability": "rare"
+    },
+    "night_vision": {
+      "id": "night_vision",
+      "name": "Очки ночного видения",
+      "description": "Позволяет видеть в полной темноте.",
+      "type": "gadget",
+      "effect": "Ночное зрение",
+      "cost": 150,
+      "weight": 0.2,
+      "availability": "uncommon"
+    }
+  },
+  "gear_types": {
+    "medical": { "label": "Медицина" },
+    "drug": { "label": "Препараты" },
+    "explosive": { "label": "Взрывчатка" },
+    "gadget": { "label": "Гаджеты" },
+    "drone": { "label": "Дроны" },
+    "cyberware": { "label": "Киберware" }
+  }
+}

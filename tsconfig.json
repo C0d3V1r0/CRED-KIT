@@ -1,0 +1,73 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": [
+      "ES2020",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "strict": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": ".",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/types": [
+        "./types/index.ts"
+      ],
+      "@/*": [
+        "./*"
+      ]
+    },
+    "allowJs": true,
+    "esModuleInterop": true
+  },
+  "include": [
+    "next-env.d.ts",
+    "app/**/*.ts",
+    "app/**/*.tsx",
+    "toolkit/**/*.ts",
+    "toolkit/**/*.tsx",
+    "core/**/*.ts",
+    "core/**/*.tsx",
+    "components/**/*.ts",
+    "components/**/*.tsx",
+    "entities/**/*.ts",
+    "entities/**/*.tsx",
+    "features/**/*.ts",
+    "features/**/*.tsx",
+    "logic/**/*.ts",
+    "logic/**/*.tsx",
+    "services/**/*.ts",
+    "services/**/*.tsx",
+    "utils/**/*.ts",
+    "utils/**/*.tsx",
+    "config/**/*.ts",
+    "config/**/*.tsx",
+    "i18n/**/*.ts",
+    "i18n/**/*.tsx",
+    "seo/**/*.ts",
+    "seo/**/*.tsx",
+    "types/**/*.ts",
+    "types/**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

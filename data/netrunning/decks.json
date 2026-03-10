@@ -1,0 +1,83 @@
+[
+  {
+    "id": "deck_pony",
+    "name": "Pony",
+    "description": "Бюджетный нейролинк для начинающих нетраннеров",
+    "type": "deck",
+    "cost": 100,
+    "level": 1,
+    "ram": 4,
+    "mu": 2,
+    "effects": {
+      "interface": "+1"
+    }
+  },
+  {
+    "id": "deck_crimson",
+    "name": "Crimson",
+    "description": "Популярный нейролинк среднего класса",
+    "type": "deck",
+    "cost": 500,
+    "level": 2,
+    "ram": 6,
+    "mu": 3,
+    "effects": {
+      "interface": "+2"
+    }
+  },
+  {
+    "id": "deck_daix",
+    "name": "DaiX",
+    "description": "Качественный нейролинк от Arasaka",
+    "type": "deck",
+    "cost": 1000,
+    "level": 3,
+    "ram": 8,
+    "mu": 4,
+    "effects": {
+      "interface": "+3"
+    }
+  },
+  {
+    "id": "deck_ondar",
+    "name": "Onyx",
+    "description": "Продвинутый нейролинк с отличной защитой",
+    "type": "deck",
+    "cost": 2000,
+    "level": 4,
+    "ram": 10,
+    "mu": 4,
+    "effects": {
+      "interface": "+4",
+      "defense": "+1"
+    }
+  },
+  {
+    "id": "deck_falk",
+    "name": "Falk",
+    "description": "Военный нейролинк для серьёзных операций",
+    "type": "deck",
+    "cost": 4000,
+    "level": 5,
+    "ram": 12,
+    "mu": 5,
+    "effects": {
+      "interface": "+5",
+      "stealth": "+2"
+    }
+  },
+  {
+    "id": "deck_ai",
+    "name": "Arasaka AI",
+    "description": "Топовый корпоративный нейролинк с ИИ-помощником",
+    "type": "deck",
+    "cost": 8000,
+    "level": 6,
+    "ram": 16,
+    "mu": 6,
+    "effects": {
+      "interface": "+6",
+      "atb": "+2"
+    }
+  }
+]

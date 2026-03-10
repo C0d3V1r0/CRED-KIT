@@ -1,0 +1,1136 @@
+@import '../styles/design-system.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Оранжевый бейдж */
+.badge-orange {
+  background-color: color-mix(in srgb, var(--cyber-orange) 15%, transparent);
+  color: var(--cyber-orange);
+  border: 1px solid color-mix(in srgb, var(--cyber-orange) 25%, transparent);
+}
+
+/* Слот киберимпланта */
+.cyber-slot {
+  width: 96px;
+  height: 80px;
+  border: 2px dashed var(--cyber-gray);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-align: center;
+  padding: 8px;
+  transition: all 0.2s ease;
+}
+
+.cyber-slot:hover {
+  border-color: var(--cyber-accent);
+  background-color: color-mix(in srgb, var(--cyber-accent) 5%, transparent);
+}
+
+.cyber-slot-filled {
+  border-style: solid;
+  border-color: var(--cyber-accent);
+  background-color: color-mix(in srgb, var(--cyber-accent) 10%, transparent);
+}
+
+.cyber-slot-empty {
+  color: var(--cyber-muted);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+}
+
+/* Кнопка в кибер-стиле */
+.cyber-btn {
+  padding: 10px 20px;
+  background-color: var(--cyber-accent);
+  color: white;
+  font-weight: 500;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cyber-btn:hover {
+  background-color: var(--cyber-accent-hover);
+}
+
+.cyber-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Серый кибер-бейдж */
+.cyber-badge-gray {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.65rem;
+  font-weight: 500;
+  background-color: color-mix(in srgb, var(--cyber-gray) 40%, transparent);
+  color: var(--cyber-muted);
+}
+
+/* Кибер-карточка */
+.cyber-card {
+  background-color: var(--cyber-surface);
+  border: 1px solid color-mix(in srgb, var(--cyber-gray) 60%, transparent);
+  border-radius: 8px;
+  padding: 20px;
+}
+
+/* ============================================
+   SOFT SHADOWS & INTERACTIVE ELEMENTS
+   ============================================ */
+
+/* Мягкая тень для карточек */
+.shadow-soft {
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.2),
+    0 2px 4px -1px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(58, 58, 74, 0.1);
+}
+
+/* Подъём карточки при наведении */
+.card-interactive {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-interactive:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 25px -5px rgba(0, 0, 0, 0.3),
+    0 4px 10px -3px rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgba(58, 58, 74, 0.15);
+}
+
+/* Мягкая тень кнопки */
+.btn-soft {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-soft:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.btn-soft:active {
+  transform: translateY(0);
+}
+
+/* Мягкая тень поля ввода */
+.input-soft {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.input-soft:focus {
+  box-shadow:
+    0 0 0 2px rgba(0, 240, 255, 0.2),
+    0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Эффект бейджа при наведении */
+.badge-interactive {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.badge-interactive:hover {
+  transform: scale(1.05);
+}
+
+/* Эффект строки списка при наведении */
+.list-item-interactive {
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.list-item-interactive:hover {
+  background-color: color-mix(in srgb, #3a3a4a 30%, transparent);
+  transform: translateX(4px);
+}
+
+/* ============================================
+   CUSTOM CYBERPUNK SCROLLBAR
+   ============================================ */
+
+/* Основная полоса прокрутки (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a12;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #3a3a4a, #2a2a3a);
+  border-radius: 4px;
+  border: 1px solid #1a1a24;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #4a4a5a, #3a3a4a);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(180deg, #5a5a6a, #4a4a5a);
+}
+
+/* Акцентные цвета скроллбара для разных секций */
+.scrollbar-cyan::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00f0ff, #00c0d0);
+}
+
+.scrollbar-accent::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #ff2a2a, #c02020);
+}
+
+.scrollbar-green::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00ff88, #00c060);
+}
+
+/* Скрыть скроллбар, сохранив прокрутку */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* ============================================
+   SMOOTH TRANSITIONS
+   ============================================ */
+
+/* Анимация плавного появления */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out forwards;
+}
+
+/* Анимация подъёма */
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.3s ease-out forwards;
+}
+
+/* Анимация увеличения */
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-scale-in {
+  animation: scale-in 0.2s ease-out forwards;
+}
+
+/* Каскадная анимация дочерних элементов */
+.stagger-children > * {
+  animation: slide-up 0.3s ease-out forwards;
+  opacity: 0;
+}
+
+.stagger-children > *:nth-child(1) { animation-delay: 0ms; }
+.stagger-children > *:nth-child(2) { animation-delay: 50ms; }
+.stagger-children > *:nth-child(3) { animation-delay: 100ms; }
+.stagger-children > *:nth-child(4) { animation-delay: 150ms; }
+.stagger-children > *:nth-child(5) { animation-delay: 200ms; }
+.stagger-children > *:nth-child(6) { animation-delay: 250ms; }
+
+/* ============================================
+   ADVANCED CYBERPUNK EFFECTS
+   ============================================ */
+
+/* Глитч-эффект текста */
+@keyframes glitch-skew {
+  0%, 100% { transform: skew(0deg); }
+  20% { transform: skew(-2deg); }
+  40% { transform: skew(2deg); }
+  60% { transform: skew(-1deg); }
+  80% { transform: skew(1deg); }
+}
+
+@keyframes glitch-flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 1; }
+  51% { opacity: 0.8; }
+  52% { opacity: 1; }
+  53% { opacity: 0.5; }
+  54% { opacity: 1; }
+}
+
+.glitch {
+  position: relative;
+  animation: glitch-flicker 0.3s infinite;
+}
+
+.glitch-text {
+  position: relative;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+}
+
+.glitch-text::before {
+  color: #ff00ff;
+  transform: translate(-2px, -2px);
+  animation: glitch-skew 0.3s infinite;
+  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+}
+
+.glitch-text::after {
+  color: #00ffff;
+  transform: translate(2px, 2px);
+  animation: glitch-skew 0.3s infinite reverse;
+  clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
+}
+
+/* Неоновые эффекты свечения */
+.neon-glow-cyan {
+  box-shadow:
+    0 0 5px #00f0ff,
+    0 0 10px #00f0ff,
+    0 0 20px #00f0ff40,
+    0 0 40px #00f0ff20;
+}
+
+.neon-glow-red {
+  box-shadow:
+    0 0 5px #ff2a2a,
+    0 0 10px #ff2a2a,
+    0 0 20px #ff2a2a40,
+    0 0 40px #ff2a2a20;
+}
+
+.neon-glow-green {
+  box-shadow:
+    0 0 5px #00ff88,
+    0 0 10px #00ff88,
+    0 0 20px #00ff8840,
+    0 0 40px #00ff8820;
+}
+
+.neon-glow-yellow {
+  box-shadow:
+    0 0 5px #ffcc00,
+    0 0 10px #ffcc00,
+    0 0 20px #ffcc0040,
+    0 0 40px #ffcc0020;
+}
+
+/* Неоновый текстовый glow отключён для более чистого вида */
+
+/* Эффект CRT-строк */
+.crt-overlay {
+  position: relative;
+}
+
+.crt-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.1) 2px,
+    rgba(0, 0, 0, 0.1) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.crt-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 0%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+  pointer-events: none;
+  z-index: 9998;
+}
+
+/* Голографический эффект карточки */
+.holo-card {
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    rgba(26, 26, 36, 0.9) 0%,
+    rgba(10, 10, 18, 0.95) 100%
+  );
+  overflow: hidden;
+}
+
+.holo-card::before {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(0, 240, 255, 0.1) 60deg,
+    rgba(255, 42, 42, 0.1) 120deg,
+    rgba(0, 255, 136, 0.1) 180deg,
+    rgba(168, 85, 247, 0.1) 240deg,
+    rgba(255, 107, 53, 0.1) 300deg,
+    transparent 360deg
+  );
+  animation: holo-rotate 10s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes holo-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.holo-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 50%,
+    rgba(0, 240, 255, 0.05) 50%,
+    transparent 51%
+  );
+  background-size: 100% 4px;
+  pointer-events: none;
+}
+
+/* Фон кибер-сетки */
+.cyber-grid {
+  background-image:
+    linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Анимированная градиентная рамка */
+.animated-border {
+  position: relative;
+  border-radius: 8px;
+}
+
+.animated-border::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 10px;
+  background: linear-gradient(
+    45deg,
+    #ff2a2a,
+    #ff6b35,
+    #ffcc00,
+    #00ff88,
+    #00f0ff,
+    #a855f7,
+    #ff2a2a
+  );
+  background-size: 400% 400%;
+  animation: border-rotate 4s linear infinite;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+@keyframes border-rotate {
+  from { background-position: 0% 50%; }
+  to { background-position: 100% 50%; }
+}
+
+/* Пульсирующее свечение */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow:
+      0 0 5px currentColor,
+      0 0 10px currentColor,
+      0 0 20px currentColor;
+  }
+  50% {
+    box-shadow:
+      0 0 10px currentColor,
+      0 0 20px currentColor,
+      0 0 40px currentColor;
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Наложение шестиугольного паттерна */
+.hex-pattern {
+  position: relative;
+}
+
+.hex-pattern::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cpath d='M30 0l25.98 15v30L30 60 4.02 45V15z' fill='none' stroke='rgba(0,240,255,0.05)' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+/* Анимация потока данных */
+@keyframes data-stream {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+.data-stream {
+  position: relative;
+  overflow: hidden;
+}
+
+.data-stream::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(0, 240, 255, 0.1),
+    transparent
+  );
+  animation: data-stream 2s ease-in-out infinite;
+}
+
+/* Эффект терминальной печати */
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.typing-cursor::after {
+  content: '█';
+  animation: blink-cursor 0.8s step-end infinite;
+  margin-left: 2px;
+}
+
+/* Контейнер эффекта дождя Матрицы */
+.matrix-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.matrix-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 20px,
+      rgba(0, 255, 136, 0.03) 20px,
+      rgba(0, 255, 136, 0.03) 21px
+    );
+  animation: matrix-scroll 10s linear infinite;
+}
+
+@keyframes matrix-scroll {
+  from { transform: translateY(0); }
+  to { transform: translateY(21px); }
+}
+
+/* Подъём карточки со свечением при наведении */
+.card-hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 10px 30px -10px rgba(0, 240, 255, 0.2),
+    0 0 20px rgba(0, 240, 255, 0.1);
+}
+
+/* Улучшенная полоса прогресса */
+.progress-cyber {
+  height: 6px;
+  background: #1a1a24;
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-cyber::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 10px,
+    rgba(0, 240, 255, 0.1) 10px,
+    rgba(0, 240, 255, 0.1) 20px
+  );
+}
+
+.progress-cyber-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #00f0ff, #00ff88);
+  border-radius: 3px;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-cyber-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  animation: progress-shine 2s infinite;
+}
+
+@keyframes progress-shine {
+  from { left: -100%; }
+  to { left: 100%; }
+}
+
+/* Скелетон загрузки в кибер-стиле */
+.skeleton-cyber {
+  background: linear-gradient(
+    90deg,
+    #1a1a24 0%,
+    #2a2a3a 50%,
+    #1a1a24 100%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s ease-in-out infinite;
+  border-radius: 4px;
+}
+
+@keyframes skeleton-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Декоративные угловые скобки */
+.corner-brackets::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: 20px;
+  height: 20px;
+  border-top: 2px solid currentColor;
+  border-left: 2px solid currentColor;
+}
+
+.corner-brackets::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  right: -1px;
+  width: 20px;
+  height: 20px;
+  border-bottom: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+}
+
+/* Полоса статов с подсвеченной заливкой */
+.stat-bar {
+  height: 8px;
+  background: #0a0a12;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.stat-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.5s ease-out;
+  position: relative;
+}
+
+.stat-bar-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 4px;
+  height: 100%;
+  background: currentColor;
+  opacity: 0.5;
+}
+
+/* Анимация сканирования */
+@keyframes eye-scan {
+  0%, 100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(100%);
+    opacity: 0.5;
+  }
+}
+
+.eye-scan::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 30%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(0, 240, 255, 0.2),
+    transparent
+  );
+  animation: eye-scan 3s ease-in-out infinite;
+}
+
+/* Toast-уведомление в кибер-стиле */
+.toast-cyber {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  padding: 16px 24px;
+  background: rgba(26, 26, 36, 0.95);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  z-index: 9999;
+  animation: toast-slide-in 0.3s ease-out;
+}
+
+@keyframes toast-slide-in {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Фокус-рамка интерактивных элементов */
+.focus-ring:focus {
+  outline: none;
+  box-shadow:
+    0 0 0 2px #0a0a12,
+    0 0 0 4px #00f0ff;
+}
+
+/* Наложение шумовой текстуры */
+.noise-overlay {
+  position: relative;
+}
+
+.noise-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+}
+
+/* ============================================
+   HUMANITY METER
+   ============================================ */
+
+/* Контейнер полной шкалы */
+.humanity-meter-container {
+  padding: 16px;
+  background: #1a1a24;
+  border: 1px solid color-mix(in srgb, #3a3a4a 60%, transparent);
+  border-radius: 8px;
+}
+
+/* Обёртка основной полосы */
+.humanity-bar-wrapper {
+  position: relative;
+}
+
+/* Основная полоса прогресса */
+.humanity-bar {
+  height: 24px;
+  background: #0a0a12;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid color-mix(in srgb, #3a3a4a 40%, transparent);
+}
+
+/* Маркеры порогов на шкале */
+.humanity-thresholds {
+  position: absolute;
+  inset: 0;
+}
+
+.humanity-threshold-marker {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: color-mix(in srgb, #3a3a4a 50%, transparent);
+  border-left: 1px dashed color-mix(in srgb, #6a6a7a 30%, transparent);
+}
+
+/* Заполненная часть шкалы */
+.humanity-fill {
+  height: 100%;
+  transition: width 0.5s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Блик на заполненной части */
+.humanity-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.15),
+    transparent
+  );
+  animation: humanity-shine 2s infinite;
+}
+
+@keyframes humanity-shine {
+  from { left: -100%; }
+  to { left: 100%; }
+}
+
+/* Подписи под шкалой */
+.humanity-labels {
+  position: relative;
+  height: 20px;
+  margin-top: 4px;
+}
+
+.humanity-label {
+  position: absolute;
+  transform: translateX(-50%);
+  font-size: 10px;
+  color: #6a6a7a;
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  transition: all 0.3s ease;
+}
+
+.humanity-label.active {
+  color: #ff2a2a;
+  font-weight: bold;
+}
+
+/* Компактная версия для карточек */
+.humanity-meter-compact {
+  min-width: 120px;
+}
+
+.humanity-bar-mini {
+  height: 6px;
+  background: #0a0a12;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.humanity-fill-mini {
+  height: 100%;
+  transition: width 0.3s ease-out;
+  border-radius: 3px;
+}
+
+/* ============================================
+   DERANGEMENT INDICATORS
+   ============================================ */
+
+/* Пульсация предупреждения при низкой человечности */
+.humanity-low-warning {
+  animation: humanity-pulse 1s ease-in-out infinite;
+}
+
+@keyframes humanity-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, #ff2a2a 40%, transparent);
+  }
+  50% {
+    box-shadow: 0 0 10px 2px color-mix(in srgb, #ff2a2a 20%, transparent);
+  }
+}
+
+/* Цвета статусных бейджей */
+.derangement-normal {
+  background: color-mix(in srgb, #00ff88 10%, transparent);
+  color: #00ff88;
+  border: 1px solid color-mix(in srgb, #00ff88 30%, transparent);
+}
+
+.derangement-mild {
+  background: color-mix(in srgb, #ffcc00 10%, transparent);
+  color: #ffcc00;
+  border: 1px solid color-mix(in srgb, #ffcc00 30%, transparent);
+}
+
+.derangementmoderate {
+  background: color-mix(in srgb, #ff6b35 10%, transparent);
+  color: #ff6b35;
+  border: 1px solid color-mix(in srgb, #ff6b35 30%, transparent);
+}
+
+.derangement-severe {
+  background: color-mix(in srgb, #ff2a2a 15%, transparent);
+  color: #ff2a2a;
+  border: 1px solid color-mix(in srgb, #ff2a2a 40%, transparent);
+}
+
+.derangement-psychosis {
+  background: color-mix(in srgb, #ff2a2a 25%, transparent);
+  color: #ff2a2a;
+  border: 2px solid #ff2a2a;
+  animation: psychosis-flash 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes psychosis-flash {
+  from { opacity: 0.8; }
+  to { opacity: 1; }
+}
+
+/* ============================================
+   PWA STYLES
+   ============================================ */
+
+/* Подсказка установки */
+.install-prompt {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  padding: 16px;
+  background: linear-gradient(to top, rgba(5, 5, 8, 0.98), rgba(10, 10, 18, 0.95));
+  border-top: 1px solid color-mix(in srgb, #ff2a2a 30%, transparent);
+  backdrop-filter: blur(20px);
+  animation: install-slide-up 0.3s ease-out;
+}
+
+@keyframes install-slide-up {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.install-content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.install-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: color-mix(in srgb, #ff2a2a 20%, transparent);
+  border: 1px solid color-mix(in srgb, #ff2a2a 40%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.install-icon svg {
+  width: 28px;
+  height: 28px;
+  color: #ff2a2a;
+}
+
+.install-text {
+  flex: 1;
+}
+
+.install-text strong {
+  display: block;
+  color: #e4e4e7;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.install-text span {
+  display: block;
+  color: #6a6a7a;
+  font-size: 12px;
+}
+
+.install-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.install-actions button {
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-cancel {
+  background: transparent;
+  border: 1px solid color-mix(in srgb, #3a3a4a 50%, transparent);
+  color: #6a6a7a;
+}
+
+.btn-cancel:hover {
+  border-color: color-mix(in srgb, #3a3a4a 80%, transparent);
+  color: #e4e4e7;
+}
+
+.btn-accept {
+  background: color-mix(in srgb, #ff2a2a 20%, transparent);
+  border: 1px solid #ff2a2a;
+  color: #ff2a2a;
+}
+
+.btn-accept:hover {
+  background: #ff2a2a;
+  color: #050508;
+}
+
+/* Индикатор офлайна */
+body.offline::before {
+  content: 'OFFLINE';
+  position: fixed;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 6px 16px;
+  background: color-mix(in srgb, #ff6b35 20%, transparent);
+  border: 1px solid #ff6b35;
+  border-radius: 4px;
+  color: #ff6b35;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  z-index: 9998;
+  animation: offline-pulse 2s ease-in-out infinite;
+}
+
+@keyframes offline-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* Экран запуска PWA для iOS */
+@media (display-mode: standalone) {
+  body::before {
+    display: none !important;
+  }
+
+  .install-prompt {
+    display: none !important;
+  }
+}
+
+/* Тактильный отклик для мобильных */
+@media (hover: none) and (pointer: coarse) {
+  button:active {
+    transform: scale(0.98);
+  }
+
+  .card-cyber:hover {
+    transform: none;
+  }
+}
+
+/* Отступы safe-area для устройств с вырезом */
+@supports (padding: max(0px)) {
+  .install-prompt {
+    padding-left: env(safe-area-inset-left, 16px);
+    padding-right: env(safe-area-inset-right, 16px);
+    padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+/* Стили выпадающего списка select */
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%237c7c93' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 36px;
+}
+
+select option {
+  background: var(--cyber-panel);
+  color: var(--cyber-text);
+  padding: 10px 12px;
+}
+
+select option:hover,
+select option:focus,
+select option:checked {
+  background: var(--cyber-surface);
+  color: var(--cyber-cyan);
+}

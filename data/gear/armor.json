@@ -1,0 +1,188 @@
+{
+  "armor": {
+    "armor_light": {
+      "id": "armor_light",
+      "name": "Кожанка",
+      "description": "Кожаная куртка с подкладкой. Базовая защита.",
+      "type": "clothing",
+      "sp": 4,
+      "locations": ["torso", "arms"],
+      "cost": 20,
+      "weight": 2,
+      "concealability": "easy",
+      "availability": "common"
+    },
+    "armor_light_tech": {
+      "id": "armor_light_tech",
+      "name": "Куртка Техно",
+      "description": "Стильная куртка с вшитой кевларовой подкладкой.",
+      "type": "clothing",
+      "sp": 6,
+      "locations": ["torso", "arms"],
+      "cost": 50,
+      "weight": 2.5,
+      "concealability": "easy",
+      "availability": "common"
+    },
+    "armor_medium": {
+      "id": "armor_medium",
+      "name": "Бронежилет",
+      "description": "Стандартный бронежилет. Защищает торс.",
+      "type": "vest",
+      "sp": 8,
+      "locations": ["torso"],
+      "cost": 50,
+      "weight": 4,
+      "concealability": "medium",
+      "availability": "common"
+    },
+    "armor_medium_tactical": {
+      "id": "armor_medium_tactical",
+      "name": "Разгрузочный жилет",
+      "description": "Тактический жилет с карманами для магазинов.",
+      "type": "vest",
+      "sp": 10,
+      "locations": ["torso", "arms"],
+      "cost": 100,
+      "weight": 5,
+      "concealability": "medium",
+      "availability": "uncommon"
+    },
+    "armor_heavy": {
+      "id": "armor_heavy",
+      "name": "Тактический бронекостюм",
+      "description": "Полная защита тела. Для профессионалов.",
+      "type": "full",
+      "sp": 12,
+      "locations": ["torso", "arms", "legs"],
+      "cost": 150,
+      "weight": 10,
+      "concealability": "hard",
+      "availability": "uncommon"
+    },
+    "armor_heavy_combat": {
+      "id": "armor_heavy_combat",
+      "name": "Боевой костюм 'Фантом'",
+      "description": "Профессиональный боевой костюм. Включает шлем.",
+      "type": "full",
+      "sp": 15,
+      "locations": ["head", "torso", "arms", "legs"],
+      "cost": 300,
+      "weight": 12,
+      "concealability": "hard",
+      "availability": "rare"
+    },
+    "armor_heavy_mili": {
+      "id": "armor_heavy_mili",
+      "name": "Милитек 'Клинок'",
+      "description": "Военный бронекостюм. Лучшее из доступного гражданским.",
+      "type": "full",
+      "sp": 18,
+      "locations": ["head", "torso", "arms", "legs"],
+      "cost": 600,
+      "weight": 15,
+      "concealability": "hard",
+      "availability": "rare"
+    },
+    "armor_helmet_light": {
+      "id": "armor_helmet_light",
+      "name": "Кевлака",
+      "description": "Лёгкая бронекаска.",
+      "type": "helmet",
+      "sp": 3,
+      "locations": ["head"],
+      "cost": 15,
+      "weight": 0.5,
+      "concealability": "easy",
+      "availability": "common"
+    },
+    "armor_helmet_medium": {
+      "id": "armor_helmet_medium",
+      "name": "Тактический шлем",
+      "description": "Шлем с забралом и системой ночного видения.",
+      "type": "helmet",
+      "sp": 6,
+      "locations": ["head"],
+      "cost": 80,
+      "weight": 1.5,
+      "concealability": "medium",
+      "availability": "uncommon"
+    },
+    "armor_helmet_heavy": {
+      "id": "armor_helmet_heavy",
+      "name": "Шлем боевой",
+      "description": "Полная защита головы с забралом.",
+      "type": "helmet",
+      "sp": 8,
+      "locations": ["head"],
+      "cost": 150,
+      "weight": 2,
+      "concealability": "hard",
+      "availability": "uncommon"
+    },
+    "armor_helmet_combat": {
+      "id": "armor_helmet_combat",
+      "name": "Шлем 'Визор'",
+      "description": "Боевой шлем с ИИ-ассистентом и автоприцелом.",
+      "type": "helmet",
+      "sp": 10,
+      "locations": ["head"],
+      "cost": 400,
+      "weight": 2.5,
+      "concealability": "hard",
+      "availability": "rare"
+    },
+    "armor_cyber_light": {
+      "id": "armor_cyber_light",
+      "name": "Подкожная защита",
+      "description": "Имплант. Защита под кожей.",
+      "type": "subdermal",
+      "sp": 4,
+      "locations": ["torso"],
+      "cost": 100,
+      "weight": 0,
+      "concealability": "always",
+      "availability": "rare",
+      "requires_implant": true
+    },
+    "armor_cyber_medium": {
+      "id": "armor_cyber_medium",
+      "name": "Дермапластина",
+      "description": "Имплант. Пластины под кожей для защиты.",
+      "type": "subdermal",
+      "sp": 6,
+      "locations": ["torso", "arms"],
+      "cost": 200,
+      "weight": 0,
+      "concealability": "always",
+      "availability": "rare",
+      "requires_implant": true
+    },
+    "armor_cyber_heavy": {
+      "id": "armor_cyber_heavy",
+      "name": "Скелетон",
+      "description": "Имплант. Кибернетический экзоскелет внутри тела.",
+      "type": "subdermal",
+      "sp": 10,
+      "locations": ["torso", "arms", "legs"],
+      "cost": 500,
+      "weight": 0,
+      "concealability": "always",
+      "availability": "rare",
+      "requires_implant": true
+    }
+  },
+  "armor_types": {
+    "clothing": { "label": "Одежда" },
+    "vest": { "label": "Жилет" },
+    "full": { "label": "Полный костюм" },
+    "helmet": { "label": "Шлем" },
+    "subdermal": { "label": "Имплант" }
+  },
+  "locations": {
+    "head": "Голова",
+    "torso": "Торс",
+    "arms": "Руки",
+    "legs": "Ноги"
+  }
+}

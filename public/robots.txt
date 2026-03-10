@@ -1,0 +1,5 @@
+# CRED Kit - Cyberpunk RED Digital Kit
+User-agent: *
+Allow: /
+
+Sitemap: /sitemap.xml

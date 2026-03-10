@@ -1,0 +1,167 @@
+[
+  {
+    "id": "program_sword",
+    "name": "Меч",
+    "description": "Программа атаки, использующая данные для нанесения виртуального урона",
+    "type": "attack",
+    "strength": 5,
+    "speed": 1,
+    "cost": 100,
+    "effects": "1d6 урона интерфейсу за уровень программы",
+    "requirement": "Нейролинк"
+  },
+  {
+    "id": "program_hammer",
+    "name": "Молот",
+    "description": "Мощная атакующая программа для разрушения защиты",
+    "type": "attack",
+    "strength": 8,
+    "speed": 2,
+    "cost": 200,
+    "effects": "2d6 урона интерфейсу за уровень программы",
+    "requirement": "Нейролинк"
+  },
+  {
+    "id": "program_worm",
+    "name": "Червь",
+    "description": "Программа, которая проникает в системы и уничтожает данные",
+    "type": "attack",
+    "strength": 12,
+    "speed": 3,
+    "cost": 500,
+    "effects": "3d6 урона интерфейсу + урон данным",
+    "requirement": "Нейролинк"
+  },
+  {
+    "id": "program_shield",
+    "name": "Щит",
+    "description": "Защитная программа для блокирования атак",
+    "type": "defense",
+    "strength": 5,
+    "speed": 1,
+    "cost": 100,
+    "effects": "Защита от атак до уровня программы",
+    "requirement": "Нейролинк"
+  },
+  {
+    "id": "program_aegis",
+    "name": "Эгида",
+    "description": "Мощный щит для защиты от атак и ICE",
+    "type": "defense",
+    "strength": 8,
+    "speed": 2,
+    "cost": 200,
+    "effects": "Защита от атак до уровня +2",
+    "requirement": "Нейролинк"
+  },
+  {
+    "id": "program_flak",
+    "name": "Флак",
+    "description": "Программа для отражения атакующих программ",
+    "type": "defense",
+    "strength": 12,
+    "speed": 3,
+    "cost": 500,
+    "effects": "Полная защита от атак до уровня +2",
+    "requirement": "Нейролинк"
+  },
+  {
+    "id": "program_speedy",
+    "name": "Быстрый Гонзалес",
+    "description": "Ускоритель для быстрого перемещения в сети",
+    "type": "booster",
+    "strength": 0,
+    "speed": 5,
+    "cost": 100,
+    "effects": "+2 к скорости действий в сети",
+    "requirement": "Нейролинк"
+  },
+  {
+    "id": "program_pinball",
+    "name": "Пинбол",
+    "description": "Утилита для навигации по сетям",
+    "type": "booster",
+    "strength": 0,
+    "speed": 3,
+    "cost": 100,
+    "effects": "+1 к проверкам навигации",
+    "requirement": "Нейролинк"
+  },
+  {
+    "id": "program_eraser",
+    "name": "Стиратель",
+    "description": "Программа для удаления данных и следов",
+    "type": "utility",
+    "strength": 0,
+    "speed": 2,
+    "cost": 100,
+    "effects": "Удаляет 1d6 данных за уровень",
+    "requirement": "Нейролинк"
+  },
+  {
+    "id": "program_dark",
+    "name": "Тень",
+    "description": "Программа маскировки в сети",
+    "type": "utility",
+    "strength": 0,
+    "speed": 2,
+    "cost": 200,
+    "effects": "-2 к обнаружению ICE",
+    "requirement": "Нейролинк"
+  },
+  {
+    "id": "program_see_ya",
+    "name": "Пока",
+    "description": "Программа для скрытного выхода из сети",
+    "type": "utility",
+    "strength": 0,
+    "speed": 3,
+    "cost": 100,
+    "effects": "Выход из сети без броска",
+    "requirement": "Нейролинк"
+  },
+  {
+    "id": "program_displacer",
+    "name": "Призрак",
+    "description": "Программа-призрак для сокрытия позиции",
+    "type": "utility",
+    "strength": 0,
+    "speed": 2,
+    "cost": 200,
+    "effects": "ICE не может атаковать этот ход",
+    "requirement": "Нейролинк"
+  },
+  {
+    "id": "program_killer",
+    "name": "Убийца",
+    "description": "Анти-ICE программа для уничтожения защиты",
+    "type": "attack",
+    "strength": 15,
+    "speed": 4,
+    "cost": 800,
+    "effects": "4d6 урона интерфейсу + урон ICE",
+    "requirement": "Нейролинк"
+  },
+  {
+    "id": "program_fool",
+    "name": "Шут",
+    "description": "Программа для сбивания прицела ICE",
+    "type": "defense",
+    "strength": 10,
+    "speed": 3,
+    "cost": 300,
+    "effects": "ICE получает штраф -3 к атакам",
+    "requirement": "Нейролинк"
+  },
+  {
+    "id": "program_surgeon",
+    "name": "Хирург",
+    "description": "Программа для восстановления повреждённых данных",
+    "type": "utility",
+    "strength": 0,
+    "speed": 2,
+    "cost": 150,
+    "effects": "Восстанавливает 1d6 повреждений интерфейса",
+    "requirement": "Нейролинк"
+  }
+]

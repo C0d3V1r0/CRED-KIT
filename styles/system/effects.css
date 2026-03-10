@@ -1,0 +1,755 @@
+/* Эффект глитча */
+.glitch {
+  position: relative;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.glitch::before {
+  color: var(--cyber-cyan);
+  transform: translateX(-2px);
+  clip-path: inset(0 0 0 0);
+  animation: glitch-1 0.5s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+  color: var(--cyber-green);
+  transform: translateX(2px);
+  clip-path: inset(0 0 0 0);
+  animation: glitch-2 0.5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-1 {
+  0%, 100% { clip-path: inset(20% 0 60% 0); }
+  50% { clip-path: inset(60% 0 10% 0); }
+}
+
+@keyframes glitch-2 {
+  0%, 100% { clip-path: inset(10% 0 80% 0); }
+  50% { clip-path: inset(80% 0 5% 0); }
+}
+
+/* Световые тени */
+.shadow-neon {
+  box-shadow: 0 0 20px rgba(255, 42, 42, 0.3);
+}
+
+.shadow-cyan {
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+}
+
+.shadow-green {
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+}
+
+/* Расширенные анимации */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px currentColor, 0 0 10px currentColor;
+  }
+  50% {
+    box-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
+  }
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes rotate-glow {
+  0% {
+    box-shadow: 0 0 5px currentColor, 0 0 10px currentColor;
+  }
+  50% {
+    box-shadow: 0 0 15px currentColor, 0 0 25px currentColor, 0 0 35px currentColor;
+  }
+  100% {
+    box-shadow: 0 0 5px currentColor, 0 0 10px currentColor;
+  }
+}
+
+.animate-fade-in { animation: fade-in 0.3s ease-out forwards; }
+.animate-slide-up { animation: slide-up 0.4s ease-out forwards; }
+.animate-slide-down { animation: slide-down 0.4s ease-out forwards; }
+.animate-scale-in { animation: scale-in 0.2s ease-out forwards; }
+.animate-slide-in-right { animation: slide-in-right 0.3s ease-out forwards; }
+.animate-scale-out { animation: scale-out 0.2s ease-out forwards; }
+
+@keyframes scale-out {
+  from {
+    opacity: 1;
+    transform: scale(1) translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95) translateX(100%);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* Эффекты наведения */
+.hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px -5px rgba(0, 0, 0, 0.4);
+}
+
+.hover-glow {
+  transition: box-shadow 0.3s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 30px rgba(255, 42, 42, 0.4);
+}
+
+.hover-scale {
+  transition: transform 0.2s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+/* Эффект стекла */
+.glass {
+  background-color: rgba(10, 10, 18, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(58, 58, 74, 0.3);
+}
+
+.glass-strong {
+  background-color: rgba(10, 10, 18, 0.9);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(58, 58, 74, 0.5);
+}
+
+/* Неоновые эффекты */
+.neon-accent {
+  color: var(--cyber-accent);
+  text-shadow: 0 0 10px var(--cyber-accent), 0 0 20px var(--cyber-accent);
+}
+
+.neon-cyan {
+  color: var(--cyber-cyan);
+  text-shadow: 0 0 10px var(--cyber-cyan), 0 0 20px var(--cyber-cyan);
+}
+
+.neon-green {
+  color: var(--cyber-green);
+  text-shadow: 0 0 10px var(--cyber-green), 0 0 20px var(--cyber-green);
+}
+
+.neon-border-accent {
+  border-color: var(--cyber-accent);
+  box-shadow: 0 0 10px var(--cyber-accent), inset 0 0 10px rgba(255, 42, 42, 0.1);
+}
+
+.neon-border-cyan {
+  border-color: var(--cyber-cyan);
+  box-shadow: 0 0 10px var(--cyber-cyan), inset 0 0 10px rgba(0, 240, 255, 0.1);
+}
+
+/* Видимый фокус для доступности */
+.focus-visible:focus-visible {
+  outline: 2px solid var(--cyber-accent);
+  outline-offset: 2px;
+}
+
+/* Плавные переходы */
+.transition-smooth {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Градиентный текст */
+.text-gradient-accent {
+  background: linear-gradient(135deg, #f1f4fa 0%, color-mix(in srgb, var(--cyber-accent) 76%, #f1f4fa) 72%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-cyan {
+  background: linear-gradient(135deg, var(--cyber-cyan) 0%, #00f0ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-mixed {
+  background: linear-gradient(135deg, var(--cyber-accent) 0%, var(--cyber-cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ==================== ДЕКОРАТИВНЫЕ ЭФФЕКТЫ ==================== */
+
+/* Эффект CRT-строк */
+.crt-overlay {
+  position: relative;
+}
+
+.crt-overlay::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.1) 0px,
+    rgba(0, 0, 0, 0.1) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+  z-index: 1000;
+}
+
+/* Анимированная градиентная рамка */
+.animated-border-gradient {
+  position: relative;
+  background: var(--cyber-surface);
+  border-radius: 12px;
+}
+
+.animated-border-gradient::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg,
+    var(--cyber-accent) 0%,
+    var(--cyber-cyan) 25%,
+    var(--cyber-green) 50%,
+    var(--cyber-purple) 75%,
+    var(--cyber-accent) 100%
+  );
+  background-size: 400% 400%;
+  border-radius: 14px;
+  z-index: -1;
+  animation: border-gradient-shift 5s ease infinite;
+}
+
+@keyframes border-gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Эффект пульсирующего кольца */
+.ring-pulse {
+  position: relative;
+}
+
+.ring-pulse::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid var(--cyber-accent);
+  opacity: 0;
+  animation: ring-pulse-expand 2s ease-out infinite;
+}
+
+@keyframes ring-pulse-expand {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* Фон в стиле кибер-сетки */
+.cyber-grid {
+  background-image:
+    linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Анимированное свечение текста */
+.text-glow-animate {
+  animation: text-glow-pulse 2s ease-in-out infinite;
+}
+
+@keyframes text-glow-pulse {
+  0%, 100% {
+    text-shadow: 0 0 10px currentColor, 0 0 20px currentColor;
+  }
+  50% {
+    text-shadow: 0 0 20px currentColor, 0 0 40px currentColor, 0 0 60px currentColor;
+  }
+}
+
+/* Фон с шестиугольным паттерном */
+.hex-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 0L100 25V75L50 100L0 75V25z' fill='none' stroke='rgba(0,240,255,0.05)' stroke-width='0.5'/%3E%3C/svg%3E");
+  background-size: 60px 104px;
+}
+
+/* Анимация дорожек схемы */
+.circuit-trace {
+  position: relative;
+  overflow: hidden;
+}
+
+.circuit-trace::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 240, 255, 0.1) 50%,
+    transparent 100%
+  );
+  animation: circuit-trace-flow 3s linear infinite;
+}
+
+@keyframes circuit-trace-flow {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* Голографический эффект */
+.holographic {
+  background: linear-gradient(
+    135deg,
+    var(--cyber-surface) 0%,
+    color-mix(in srgb, var(--cyber-cyan) 10%, var(--cyber-surface)) 50%,
+    var(--cyber-surface) 100%
+  );
+  position: relative;
+}
+
+.holographic::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(0, 240, 255, 0.05) 50%,
+    transparent 70%
+  );
+  animation: holographic-shift 4s ease-in-out infinite;
+}
+
+@keyframes holographic-shift {
+  0%, 100% { transform: translateX(-100%); }
+  50% { transform: translateX(100%); }
+}
+
+/* Эффект цифрового дождя */
+.digital-rain {
+  position: relative;
+  overflow: hidden;
+}
+
+.digital-rain::after {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  right: 0;
+  bottom: -100%;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    transparent 40px,
+    rgba(0, 240, 255, 0.02) 40px,
+    rgba(0, 240, 255, 0.02) 42px
+  );
+  animation: digital-rain 10s linear infinite;
+}
+
+@keyframes digital-rain {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(42px); }
+}
+
+/* Глитч-эффект текста */
+.glitch-text {
+  position: relative;
+  animation: glitch-skew 3s infinite;
+}
+
+@keyframes glitch-skew {
+  0%, 90%, 100% { transform: skew(0deg); }
+  92% { transform: skew(-2deg); }
+  94% { transform: skew(2deg); }
+  96% { transform: skew(-1deg); }
+  98% { transform: skew(1deg); }
+}
+
+/* Кнопка с подсветкой */
+.cyber-btn-ultimate {
+  position: relative;
+  background: var(--cyber-dark);
+  border: 1px solid var(--cyber-accent);
+  color: var(--cyber-accent);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.cyber-btn-ultimate::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 42, 42, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.cyber-btn-ultimate:hover::before {
+  left: 100%;
+}
+
+.cyber-btn-ultimate:hover {
+  box-shadow:
+    0 0 20px rgba(255, 42, 42, 0.4),
+    inset 0 0 20px rgba(255, 42, 42, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Неоновый чекбокс */
+.cyber-checkbox {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--cyber-gray);
+  border-radius: 4px;
+  background: var(--cyber-dark);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cyber-checkbox:checked {
+  border-color: var(--cyber-green);
+  background: var(--cyber-green);
+  box-shadow: 0 0 10px var(--cyber-green);
+}
+
+.cyber-checkbox:checked::after {
+  content: '✓';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cyber-black);
+  font-size: 12px;
+  font-weight: bold;
+  height: 100%;
+}
+
+/* Анимированная полоса статов */
+.stat-bar-animated {
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-bar-animated::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 30%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  animation: stat-bar-shine 2s ease-in-out infinite;
+}
+
+@keyframes stat-bar-shine {
+  0% { left: -30%; }
+  100% { left: 100%; }
+}
+
+/* Контейнер для 3D-наклона */
+.tilt-container {
+  perspective: 1000px;
+}
+
+.tilt-element {
+  transform-style: preserve-3d;
+  transition: transform 0.1s ease;
+}
+
+/* Шумовая текстура поверх слоя */
+.noise-overlay {
+  position: relative;
+}
+
+.noise-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* Эффект прожектора при наведении */
+.spotlight-hover {
+  position: relative;
+  overflow: hidden;
+}
+
+.spotlight-hover::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(0, 240, 255, 0.15) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  transition: width 0.5s ease, height 0.5s ease;
+  border-radius: 50%;
+}
+
+.spotlight-hover:hover::after {
+  width: 300%;
+  height: 300%;
+}
+
+/* Анимация потока данных */
+.data-stream {
+  position: relative;
+  overflow: hidden;
+}
+
+.data-stream::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--cyber-cyan), transparent);
+  animation: data-flow 2s linear infinite;
+}
+
+@keyframes data-flow {
+  0% { transform: translateX(-100%); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateX(100%); opacity: 0; }
+}
+
+/* Плавающие частицы */
+.particles {
+  position: relative;
+  overflow: hidden;
+}
+
+.particles::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(255, 42, 42, 0.1) 0%, transparent 1px),
+    radial-gradient(circle at 80% 70%, rgba(0, 240, 255, 0.1) 0%, transparent 1px),
+    radial-gradient(circle at 40% 80%, rgba(0, 255, 136, 0.1) 0%, transparent 1px),
+    radial-gradient(circle at 60% 20%, rgba(168, 85, 247, 0.1) 0%, transparent 1px);
+  animation: particles-float 10s ease-in-out infinite;
+}
+
+@keyframes particles-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Мигание предупреждения */
+.blink-warning {
+  animation: blink-warn 1s step-end infinite;
+}
+
+@keyframes blink-warn {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0.3; }
+}
+
+/* Эффект дождя Матрицы */
+.matrix-rain {
+  font-family: monospace;
+  color: var(--cyber-green);
+  text-shadow: 0 0 5px var(--cyber-green);
+  animation: matrix-pulse 2s ease-in-out infinite;
+}
+
+@keyframes matrix-pulse {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; text-shadow: 0 0 15px var(--cyber-green), 0 0 30px var(--cyber-green); }
+}
+
+/* Улучшенная карточка с акцентами по углам */
+.card-cyber {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(23, 28, 37, 0.96), rgba(16, 20, 28, 0.99)),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.008) 0 1px, transparent 1px 12px);
+  border: 1px solid color-mix(in srgb, var(--cyber-gray) 32%, transparent);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.24);
+  transition: all 0.25s var(--motion-ease-standard);
+  overflow: hidden;
+}
+
+.card-cyber::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(217, 74, 43, 0.34), rgba(143, 184, 201, 0.18), transparent);
+  opacity: 0.72;
+}
+
+.card-cyber::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(540px 250px at -10% -28%, rgba(217, 74, 43, 0.035), transparent 66%);
+  pointer-events: none;
+  opacity: 0.52;
+}
+
+.card-cyber:hover {
+  border-color: color-mix(in srgb, var(--cyber-cyan) 24%, transparent);
+  transform: translateY(-2px);
+  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.28);
+}
