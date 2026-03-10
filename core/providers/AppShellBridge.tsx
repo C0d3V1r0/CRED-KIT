@@ -5,21 +5,11 @@ import {
   appShellActions,
   selectHasUnreadWhatsNew,
   selectIsMobileMenuOpen,
-  selectShowWelcomeAlert,
   selectShowWhatsNewAlert
 } from '../model/appShellSlice';
 
-const WELCOME_ALERT_SEEN_KEY = 'credkit-welcome-alert-seen-v1';
 const WHATS_NEW_SEEN_VERSION_KEY = 'credkit-whats-new-seen-version';
 const WHATS_NEW_VERSION = APP_CONFIG.versionLabel;
-
-function hasSeenWelcomeAlert(): boolean {
-  if (typeof window === 'undefined') {
-    return true;
-  }
-
-  return window.localStorage.getItem(WELCOME_ALERT_SEEN_KEY) === '1';
-}
 
 function hasUnreadWhatsNewFlag(): boolean {
   if (typeof window === 'undefined') {
@@ -27,12 +17,6 @@ function hasUnreadWhatsNewFlag(): boolean {
   }
 
   return window.localStorage.getItem(WHATS_NEW_SEEN_VERSION_KEY) !== WHATS_NEW_VERSION;
-}
-
-export function markWelcomeAlertSeen() {
-  if (typeof window !== 'undefined') {
-    window.localStorage.setItem(WELCOME_ALERT_SEEN_KEY, '1');
-  }
 }
 
 export function markWhatsNewSeen() {
@@ -43,7 +27,6 @@ export function markWhatsNewSeen() {
 
 export function AppShellBridge({ children }: { children: React.ReactNode }) {
   const dispatch = useAppDispatch();
-  const showWelcomeAlert = useAppSelector(selectShowWelcomeAlert);
   const showWhatsNewAlert = useAppSelector(selectShowWhatsNewAlert);
   const isMobileMenuOpen = useAppSelector(selectIsMobileMenuOpen);
   const hasUnreadWhatsNew = useAppSelector(selectHasUnreadWhatsNew);
@@ -51,7 +34,6 @@ export function AppShellBridge({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     dispatch(appShellActions.hydrateShellState({
       isOffline: typeof navigator !== 'undefined' ? !navigator.onLine : false,
-      showWelcomeAlert: !hasSeenWelcomeAlert(),
       hasUnreadWhatsNew: hasUnreadWhatsNewFlag()
     }));
   }, [dispatch]);
@@ -75,24 +57,18 @@ export function AppShellBridge({ children }: { children: React.ReactNode }) {
     }
 
     const previousOverflow = document.body.style.overflow;
-    if (showWelcomeAlert || showWhatsNewAlert || isMobileMenuOpen) {
+    if (showWhatsNewAlert || isMobileMenuOpen) {
       document.body.style.overflow = 'hidden';
     }
 
     return () => {
       document.body.style.overflow = previousOverflow;
     };
-  }, [isMobileMenuOpen, showWelcomeAlert, showWhatsNewAlert]);
+  }, [isMobileMenuOpen, showWhatsNewAlert]);
 
   useEffect(() => {
     const onEscapePress = (event: KeyboardEvent) => {
       if (event.key !== 'Escape') {
-        return;
-      }
-
-      if (showWelcomeAlert) {
-        markWelcomeAlertSeen();
-        dispatch(appShellActions.dismissWelcomeAlert());
         return;
       }
 
@@ -108,7 +84,7 @@ export function AppShellBridge({ children }: { children: React.ReactNode }) {
 
     window.addEventListener('keydown', onEscapePress);
     return () => window.removeEventListener('keydown', onEscapePress);
-  }, [dispatch, isMobileMenuOpen, showWelcomeAlert, showWhatsNewAlert]);
+  }, [dispatch, isMobileMenuOpen, showWhatsNewAlert]);
 
   useEffect(() => {
     if (!hasUnreadWhatsNew) {

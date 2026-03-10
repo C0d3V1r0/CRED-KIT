@@ -11,11 +11,10 @@ import {
   selectHasUnreadWhatsNew,
   selectIsMobileMenuOpen,
   selectIsOffline,
-  selectShowWelcomeAlert,
   selectShowWhatsNewAlert,
   type AppTabId
 } from '../core/model/appShellSlice';
-import { markWelcomeAlertSeen, markWhatsNewSeen } from '../core/providers/AppShellBridge';
+import { markWhatsNewSeen } from '../core/providers/AppShellBridge';
 import { AppShellChrome } from '../core/ui/AppShellChrome';
 import { AppShellOverlays } from '../core/ui/AppShellOverlays';
 import { ToastProvider } from '../components/common/Toast';
@@ -41,7 +40,6 @@ function AppContent() {
   const pathname = usePathname();
   const activeTab = useAppSelector(selectActiveTab);
   const isMobileMenuOpen = useAppSelector(selectIsMobileMenuOpen);
-  const showWelcomeAlert = useAppSelector(selectShowWelcomeAlert);
   const showWhatsNewAlert = useAppSelector(selectShowWhatsNewAlert);
   const hasUnreadWhatsNew = useAppSelector(selectHasUnreadWhatsNew);
   const isOffline = useAppSelector(selectIsOffline);
@@ -63,16 +61,6 @@ function AppContent() {
 
   const handleTabChange = (tabId: AppTabId) => {
     dispatch(appShellActions.setActiveTab(tabId));
-  };
-
-  const dismissWelcomeAlert = () => {
-    markWelcomeAlertSeen();
-    dispatch(appShellActions.dismissWelcomeAlert());
-  };
-
-  const startFromNewbieMap = () => {
-    handleTabChange('newbieMap');
-    dismissWelcomeAlert();
   };
 
   const markWhatsNewAsSeen = () => {
@@ -175,12 +163,9 @@ function AppContent() {
 
       <AppShellOverlays
         language={language}
-        showWelcomeAlert={showWelcomeAlert}
         showWhatsNewAlert={showWhatsNewAlert}
         whatsNewHighlights={whatsNewHighlights}
         t={t}
-        onDismissWelcome={dismissWelcomeAlert}
-        onStartFromNewbieMap={startFromNewbieMap}
         onDismissWhatsNew={dismissWhatsNewAlert}
         onAcknowledgeWhatsNew={acknowledgeWhatsNew}
       />

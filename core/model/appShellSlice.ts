@@ -12,7 +12,6 @@ export type AppTabId =
 export interface AppShellState {
   activeTab: AppTabId;
   isMobileMenuOpen: boolean;
-  showWelcomeAlert: boolean;
   showWhatsNewAlert: boolean;
   hasUnreadWhatsNew: boolean;
   isOffline: boolean;
@@ -21,7 +20,6 @@ export interface AppShellState {
 const initialState: AppShellState = {
   activeTab: 'character',
   isMobileMenuOpen: false,
-  showWelcomeAlert: false,
   showWhatsNewAlert: false,
   hasUnreadWhatsNew: false,
   isOffline: false
@@ -43,12 +41,6 @@ const appShellSlice = createSlice({
     },
     closeMobileMenu(state) {
       state.isMobileMenuOpen = false;
-    },
-    showWelcomeAlert(state) {
-      state.showWelcomeAlert = true;
-    },
-    dismissWelcomeAlert(state) {
-      state.showWelcomeAlert = false;
     },
     showWhatsNewAlert(state) {
       state.showWhatsNewAlert = true;
@@ -78,7 +70,6 @@ type AppShellRootState = {
 export const selectAppShell = (state: AppShellRootState): AppShellState => state.appShell;
 export const selectActiveTab = createSelector(selectAppShell, (state) => state.activeTab);
 export const selectIsMobileMenuOpen = createSelector(selectAppShell, (state) => state.isMobileMenuOpen);
-export const selectShowWelcomeAlert = createSelector(selectAppShell, (state) => state.showWelcomeAlert);
 export const selectShowWhatsNewAlert = createSelector(selectAppShell, (state) => state.showWhatsNewAlert);
 export const selectHasUnreadWhatsNew = createSelector(selectAppShell, (state) => state.hasUnreadWhatsNew);
 export const selectIsOffline = createSelector(selectAppShell, (state) => state.isOffline);
