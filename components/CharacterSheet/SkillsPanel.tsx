@@ -10,7 +10,7 @@ import type { CustomCombatSkill, SkillDefinition, SkillCategory } from '@/types'
 
 const SKILLS = skillsData.skills as Record<string, SkillDefinition>;
 const SKILL_CATEGORIES = skillsData.categories as Record<string, SkillCategory>;
-const CATEGORY_ORDER = ['Awareness', 'Body', 'Control', 'Education', 'Fighting', 'Ranged Weapon', 'Social', 'Technique'];
+const CATEGORY_ORDER = ['Awareness', 'Body', 'Control', 'Education', 'Fighting', 'Ranged Weapon', 'Social', 'Performance', 'Technique'];
 const CATEGORY_LABELS_EN: Record<string, string> = {
   Awareness: 'Awareness',
   Body: 'Body',
@@ -19,6 +19,7 @@ const CATEGORY_LABELS_EN: Record<string, string> = {
   Fighting: 'Fighting',
   'Ranged Weapon': 'Ranged Weapon',
   Social: 'Social',
+  Performance: 'Performance',
   Technique: 'Technique'
 };
 const CUSTOM_COMBAT_SKILL_COUNT = 3;
@@ -530,7 +531,11 @@ function SkillsPanel() {
           </div>
           <div>
             <div className="text-cyber-muted mb-2">{tr('Социализация', 'Social')}</div>
-            <div className="text-cyber-text">{tr('COOL/EMP + навык', 'COOL/EMP + skill')}</div>
+            <div className="text-cyber-text">{tr('ХАР/EMP + навык', 'CHA/EMP + skill')}</div>
+          </div>
+          <div>
+            <div className="text-cyber-muted mb-2">{tr('Сцена', 'Performance')}</div>
+            <div className="text-cyber-text">{tr('ХАР/TECH + навык', 'CHA/TECH + skill')}</div>
           </div>
         </div>
       </div>

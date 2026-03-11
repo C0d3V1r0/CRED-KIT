@@ -1,0 +1,19 @@
+import { defineConfig } from 'vitest/config';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+export default defineConfig({
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, '../..')
+    }
+  },
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: ['tests/setup/vitest.dom.setup.ts'],
+    include: ['tests/integration/**/*.test.ts', 'tests/integration/**/*.test.tsx']
+  }
+});

@@ -51,7 +51,12 @@ export function formatCyberwareEffects(
   };
 
   return Object.entries(effects)
-    .map(([key, value]) => `${value} ${effectLabels[key] || key}`)
+    .map(([key, value]) => {
+      const label = effectLabels[key] || key;
+      return typeof value === 'boolean'
+        ? label
+        : `${value} ${label}`;
+    })
     .join(', ');
 }
 
@@ -93,21 +98,21 @@ export function formatSlot(slot: string, locale: 'ru' | 'en' = 'ru'): string {
 }
 
 // - названия ролей
-const ROLE_NAMES: Record<string, string> = {
-  Nomad: 'Номад',
-  Rocker: 'Рокер',
-  Solo: 'Соло',
-  Netrunner: 'Нетраннер',
-  Tech: 'Техник',
-  Medtech: 'Медтех',
-  Media: 'Медиа',
-  Exec: 'Экзекьютив',
-  Lawman: 'Законник',
-  Fixer: 'Фиксер'
+const ROLE_NAMES: Record<string, { ru: string; en: string }> = {
+  Nomad: { ru: 'Номад', en: 'Nomad' },
+  Rocker: { ru: 'Рокербой', en: 'Rockerboy' },
+  Solo: { ru: 'Соло', en: 'Solo' },
+  Netrunner: { ru: 'Нетраннер', en: 'Netrunner' },
+  Tech: { ru: 'Техник', en: 'Tech' },
+  Medtech: { ru: 'Медтех', en: 'Medtech' },
+  Media: { ru: 'Медиа', en: 'Media' },
+  Exec: { ru: 'Корпорат', en: 'Exec' },
+  Lawman: { ru: 'Законник', en: 'Lawman' },
+  Fixer: { ru: 'Фиксер', en: 'Fixer' }
 };
 
-export function formatRole(role: string): string {
-  return ROLE_NAMES[role] || role;
+export function formatRole(role: string, locale: 'ru' | 'en' = 'ru'): string {
+  return ROLE_NAMES[role]?.[locale] || role;
 }
 
 const getDerangementThresholds = (maxHumanity: number) => [

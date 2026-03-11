@@ -20,9 +20,9 @@ export const STATS_CONFIG = [
   { key: 'DEX' as const, labelRu: 'Ловкость', labelEn: 'Dexterity', short: 'DEX' },
   { key: 'TECH' as const, labelRu: 'Техника', labelEn: 'Tech', short: 'TECH' },
   { key: 'WILL' as const, labelRu: 'Воля', labelEn: 'Willpower', short: 'WILL' },
-  { key: 'COOL' as const, labelRu: 'Хладнокровие', labelEn: 'Cool', short: 'COOL' },
+  { key: 'COOL' as const, labelRu: 'Харизма', labelEn: 'Charisma', short: 'ХАР' },
   { key: 'LUCK' as const, labelRu: 'Удача', labelEn: 'Luck', short: 'LUCK' },
-  { key: 'MOVE' as const, labelRu: 'Движение', labelEn: 'Movement', short: 'MOVE' },
+  { key: 'MOVE' as const, labelRu: 'Скорость', labelEn: 'Speed', short: 'SPD' },
   { key: 'BODY' as const, labelRu: 'Телосложение', labelEn: 'Body', short: 'BODY' },
   { key: 'EMP' as const, labelRu: 'Эмпатия', labelEn: 'Empathy', short: 'EMP' }
 ] as const;
@@ -34,9 +34,9 @@ const ROLES = [
 
 const ROLE_ABILITIES: Record<Role, { labelRu: string; labelEn: string; descRu: string; descEn: string }> = {
   Nomad: {
-    labelRu: 'Moto',
+    labelRu: 'Мото',
     labelEn: 'Moto',
-    descRu: 'Ранг Moto отражает доступ к транспорту, семейным ресурсам и поддержке клана.',
+    descRu: 'Ранг Мото отражает доступ к транспорту, семейным ресурсам и поддержке клана.',
     descEn: 'Moto rank reflects access to vehicles, clan resources, and family support.'
   },
   Rocker: {
@@ -58,9 +58,9 @@ const ROLE_ABILITIES: Record<Role, { labelRu: string; labelEn: string; descRu: s
     descEn: 'Interface rank sets the netrunning level and is used as the character base interface.'
   },
   Tech: {
-    labelRu: 'Maker',
+    labelRu: 'Мастер',
     labelEn: 'Maker',
-    descRu: 'Ранг Maker отражает потенциал создания, ремонта и улучшения техники.',
+    descRu: 'Ранг ролевой способности отражает потенциал создания, ремонта и улучшения техники.',
     descEn: 'Maker rank reflects the ability to create, repair, and upgrade tech.'
   },
   Medtech: {
@@ -119,6 +119,7 @@ function parseRoleValue(value: string, fallback: Role): Role {
 interface BasicInfoCardProps {
   character: Character;
   isLoading: boolean;
+  isExportingPdf: boolean;
   tr: TranslateFn;
   onNameChange: (name: string) => void;
   onRoleChange: (role: Role) => void;
@@ -132,6 +133,7 @@ interface BasicInfoCardProps {
 export function BasicInfoCard({
   character,
   isLoading,
+  isExportingPdf,
   tr,
   onNameChange,
   onRoleChange,
@@ -156,14 +158,17 @@ export function BasicInfoCard({
         <div className="flex items-center gap-2 flex-wrap">
           <button
             onClick={onExportPdf}
-            className="btn-outline px-3 py-1.5 text-xs"
+            disabled={isExportingPdf}
+            className="btn-outline h-11 min-w-[240px] px-5 text-sm disabled:opacity-60 disabled:cursor-wait"
           >
-            {tr('Скачать PDF', 'Download PDF')}
+            {isExportingPdf
+              ? tr('Готовлю PDF...', 'Preparing PDF...')
+              : tr('Скачать анкету', 'Download sheet')}
           </button>
           <button
             onClick={onOpenResetDialog}
             disabled={isLoading}
-            className="btn-danger px-3 py-1.5 text-xs"
+            className="btn-danger h-11 min-w-[240px] px-5 text-sm"
           >
             {tr('Новый персонаж', 'New character')}
           </button>
@@ -198,7 +203,7 @@ export function BasicInfoCard({
           >
             {ROLES.map((role) => (
               <option key={role} value={role}>
-                {formatRole(role)}
+                {tr(formatRole(role, 'ru'), formatRole(role, 'en'))}
               </option>
             ))}
           </select>
@@ -290,7 +295,7 @@ export function RoleAbilityCard({ character, tr }: RoleAbilityCardProps) {
           </p>
         </div>
         <div className="px-2 py-1 rounded bg-cyber-orange/10 border border-cyber-orange/30">
-          <span className="text-cyber-orange text-2xs font-medium">{formatRole(character.role)}</span>
+          <span className="text-cyber-orange text-2xs font-medium">{tr(formatRole(character.role, 'ru'), formatRole(character.role, 'en'))}</span>
         </div>
       </div>
 
@@ -338,7 +343,7 @@ export function StatsEditorCard({ character, statDrafts, setStatDrafts, tr, upda
         </div>
       </div>
 
-      <div className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-9 gap-2.5 md:gap-3">
+      <div className="grid grid-cols-2 sm:grid-cols-5 md:grid-cols-10 gap-2 md:gap-2.5">
         {STATS_CONFIG.map((stat) => {
           const value = character.stats[stat.key];
           const isHigh = value >= 8;
@@ -387,7 +392,7 @@ export function StatsEditorCard({ character, statDrafts, setStatDrafts, tr, upda
                     }));
                   }}
                   aria-label={stat.key}
-                  className={`input w-full text-center font-mono font-bold text-lg py-3 transition-all ${
+                  className={`input w-full text-center font-mono font-bold text-base py-2.5 px-2 transition-all ${
                     isHigh ? 'border-cyber-green/50 text-cyber-green' : isLow ? 'border-cyber-orange/50 text-cyber-orange' : ''
                   }`}
                 />

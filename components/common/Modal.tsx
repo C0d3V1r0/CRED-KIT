@@ -103,7 +103,7 @@ export function ConfirmDialog({
 }: ConfirmDialogProps) {
   const variantClass = {
     danger: 'btn-danger',
-    warning: 'bg-cyber-orange/20 border-cyber-orange text-cyber-orange',
+    warning: 'btn-warning',
     info: 'btn'
   }[variant];
 
@@ -111,8 +111,8 @@ export function ConfirmDialog({
     <Modal isOpen={isOpen} onClose={onClose} title={title} size="sm">
       <div className="space-y-4">
         <p className="text-cyber-muted">{message}</p>
-        <div className="flex gap-3 justify-end">
-          <button onClick={onClose} className="btn-outline">
+        <div className="flex gap-3 justify-end flex-wrap">
+          <button onClick={onClose} className="btn-outline min-w-[160px]">
             {cancelText}
           </button>
           <button
@@ -120,7 +120,7 @@ export function ConfirmDialog({
               onConfirm();
               onClose();
             }}
-            className={variantClass}
+            className={`${variantClass} min-w-[160px]`}
           >
             {confirmText}
           </button>

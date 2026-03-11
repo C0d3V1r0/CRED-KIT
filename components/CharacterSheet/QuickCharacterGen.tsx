@@ -14,7 +14,7 @@ const ROLES: { id: Role; label: { ru: string; en: string }; desc: { ru: string; 
   { id: 'Netrunner', label: { ru: 'Нетраннер', en: 'Netrunner' }, desc: { ru: 'Хакер', en: 'Hacker' }, stats: ['INT', 'TECH', 'WILL'] },
   { id: 'Tech', label: { ru: 'Техник', en: 'Tech' }, desc: { ru: 'Инженер', en: 'Engineer' }, stats: ['TECH', 'INT', 'DEX'] },
   { id: 'Medtech', label: { ru: 'Медтех', en: 'Medtech' }, desc: { ru: 'Врач', en: 'Doctor' }, stats: ['TECH', 'INT', 'WILL'] },
-  { id: 'Exec', label: { ru: 'Экзек', en: 'Exec' }, desc: { ru: 'Менеджер', en: 'Manager' }, stats: ['COOL', 'INT', 'TECH'] },
+  { id: 'Exec', label: { ru: 'Корпорат', en: 'Exec' }, desc: { ru: 'Корпоративный управленец', en: 'Corporate manager' }, stats: ['COOL', 'INT', 'TECH'] },
   { id: 'Lawman', label: { ru: 'Лоумен', en: 'Lawman' }, desc: { ru: 'Полицейский', en: 'Police officer' }, stats: ['REF', 'COOL', 'BODY'] },
   { id: 'Fixer', label: { ru: 'Фиксер', en: 'Fixer' }, desc: { ru: 'Брокер', en: 'Broker' }, stats: ['INT', 'COOL', 'LUCK'] },
   { id: 'Media', label: { ru: 'Медиа', en: 'Media' }, desc: { ru: 'Журналист', en: 'Journalist' }, stats: ['INT', 'COOL', 'LUCK'] },
@@ -107,6 +107,10 @@ export function QuickCharacterGen() {
       stats.LUCK += 1;
       stats.TECH = Math.max(2, stats.TECH - 1);
     }
+
+    (Object.keys(stats) as StatKey[]).forEach((key) => {
+      stats[key] = Math.min(10, Math.max(2, stats[key]));
+    });
 
     setGeneratedStats(stats);
     setStep('stats');

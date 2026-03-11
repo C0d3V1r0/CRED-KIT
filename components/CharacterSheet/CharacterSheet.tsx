@@ -37,6 +37,7 @@ function CharacterSheet() {
   const [damageInput, setDamageInput] = useState('');
   const [healInput, setHealInput] = useState('');
   const [isResetDialogOpen, setIsResetDialogOpen] = useState(false);
+  const [isExportingPdf, setIsExportingPdf] = useState(false);
   const character = useCharacterState();
   const derivedStats = useDerivedStats();
   const { isLoading } = useCharacterStatus();
@@ -49,16 +50,34 @@ function CharacterSheet() {
     setStatDrafts(createStatDrafts(character.stats));
   }, [character.stats]);
 
-  const handlePdfExport = () => {
+  const handlePdfExport = async () => {
+    if (isExportingPdf) {
+      return;
+    }
+
+    setIsExportingPdf(true);
+    showToast(
+      tr('Анкета готовится к скачиванию. Это может занять пару секунд.', 'Preparing the character sheet for download. This can take a couple of seconds.'),
+      'info',
+      2500
+    );
+
     try {
-      exportCharacterToPdf(character, derivedStats, language);
+      await exportCharacterToPdf(character, derivedStats, language);
+      showToast(
+        tr('PDF-анкета скачивается.', 'PDF character sheet is downloading.'),
+        'success',
+        2500
+      );
     } catch (error) {
       showToast(
         error instanceof Error
           ? error.message
-          : tr('Не удалось открыть окно печати', 'Failed to open print window'),
+          : tr('Не удалось подготовить PDF', 'Failed to prepare PDF'),
         'error'
       );
+    } finally {
+      setIsExportingPdf(false);
     }
   };
 
@@ -87,6 +106,7 @@ function CharacterSheet() {
           <BasicInfoCard
             character={character}
             isLoading={isLoading}
+            isExportingPdf={isExportingPdf}
             tr={tr}
             onNameChange={(name) => updateBasicInfo({ name })}
             onRoleChange={(role) => updateBasicInfo({ role })}

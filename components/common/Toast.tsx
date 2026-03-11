@@ -19,13 +19,6 @@ interface ToastContextType {
 
 const ToastContext = createContext<ToastContextType | null>(null);
 
-const TOAST_ICONS = {
-  success: '✓',
-  error: '✕',
-  warning: '!',
-  info: 'ℹ'
-};
-
 const TOAST_STYLES = {
   success: 'bg-cyber-green/15 border-cyber-green/30 text-cyber-green',
   error: 'bg-cyber-accent/15 border-cyber-accent/30 text-cyber-accent',
@@ -73,7 +66,7 @@ function ToastItem({ toast, onRemove }: { toast: Toast; onRemove: (id: string) =
         toast-item
         relative overflow-hidden
         px-4 py-3 rounded-lg shadow-lg
-        flex items-start gap-3 min-w-[320px] max-w-md
+        flex items-start gap-2 min-w-[320px] max-w-md
         border backdrop-blur-sm
         transition-all duration-200
         ${exiting ? 'animate-scale-out opacity-0 translate-x-full' : 'animate-slide-in-right'}
@@ -91,11 +84,6 @@ function ToastItem({ toast, onRemove }: { toast: Toast; onRemove: (id: string) =
           />
         </div>
       )}
-
-      {/* Иконка */}
-      <span className="text-lg flex-shrink-0 mt-0.5">
-        {TOAST_ICONS[toast.type]}
-      </span>
 
       {/* Контент уведомления */}
       <div className="flex-1 min-w-0">

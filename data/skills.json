@@ -15,7 +15,7 @@
 
     "Drive Land Vehicle": { "stat": "REF", "label": "Вождение", "category": "Control" },
     "Pilot Air Vehicle": { "stat": "REF", "label": "Пилотирование", "category": "Control", "multiplier": 2 },
-    "Pilot Sea Vehicle": { "stat": "REF", "label": "Судоходство", "category": "Control", "multiplier": 2 },
+    "Pilot Sea Vehicle": { "stat": "REF", "label": "Судоходство", "category": "Control" },
     "Riding": { "stat": "REF", "label": "Верховая езда", "category": "Control" },
 
     "Accounting": { "stat": "INT", "label": "Бухгалтерия", "category": "Education" },
@@ -28,7 +28,10 @@
     "Deduction": { "stat": "INT", "label": "Дедукция", "category": "Education" },
     "Education": { "stat": "INT", "label": "Образованность", "category": "Education" },
     "Gamble": { "stat": "INT", "label": "Азартные игры", "category": "Education" },
+    "Language": { "stat": "INT", "label": "Знание языка", "category": "Education" },
     "Library Search": { "stat": "INT", "label": "Поиск информации", "category": "Education" },
+    "Local Expert": { "stat": "INT", "label": "Знание местности", "category": "Education" },
+    "Science": { "stat": "INT", "label": "Наука", "category": "Education", "multiplier": 2 },
     "Tactics": { "stat": "INT", "label": "Тактика", "category": "Education" },
     "Wilderness Survival": { "stat": "INT", "label": "Выживание", "category": "Education" },
 
@@ -53,16 +56,19 @@
     "Trading": { "stat": "COOL", "label": "Торговля", "category": "Social" },
     "Wardrobe and Style": { "stat": "COOL", "label": "Гардероб и стиль", "category": "Social" },
 
+    "Acting": { "stat": "COOL", "label": "Актерское мастерство", "category": "Performance" },
+    "Play Instrument": { "stat": "TECH", "label": "Игра на инструментах", "category": "Performance" },
+
     "Air Vehicle Tech": { "stat": "TECH", "label": "Починка воздушного транспорта", "category": "Technique" },
     "Basic Tech": { "stat": "TECH", "label": "Знание техники", "category": "Technique" },
     "Cybertech": { "stat": "TECH", "label": "Кибертехника", "category": "Technique" },
-    "Demolitions": { "stat": "TECH", "label": "Подрывник", "category": "Technique" },
-    "Electronics/Security Tech": { "stat": "TECH", "label": "Электроника / Безопасность", "category": "Technique" },
+    "Demolitions": { "stat": "TECH", "label": "Подрывник", "category": "Technique", "multiplier": 2 },
+    "Electronics/Security Tech": { "stat": "TECH", "label": "Электроника / Безопасность", "category": "Technique", "multiplier": 2 },
     "First Aid": { "stat": "TECH", "label": "Первая помощь", "category": "Technique" },
     "Forgery": { "stat": "TECH", "label": "Фальсификация", "category": "Technique" },
     "Land Vehicle Tech": { "stat": "TECH", "label": "Автомеханика", "category": "Technique" },
     "Paint/Draw/Sculpt": { "stat": "TECH", "label": "Художественное ремесло", "category": "Technique" },
-    "Paramedic": { "stat": "TECH", "label": "Парамедик", "category": "Technique" },
+    "Paramedic": { "stat": "TECH", "label": "Парамедик", "category": "Technique", "multiplier": 2 },
     "Photography/Film": { "stat": "TECH", "label": "Кино и фототехника", "category": "Technique" },
     "Pick Lock": { "stat": "TECH", "label": "Взлом замков", "category": "Technique" },
     "Pick Pocket": { "stat": "TECH", "label": "Карманные кражи", "category": "Technique" },
@@ -77,6 +83,7 @@
     "Fighting": { "label": "Ближний бой", "labelEn": "Fighting", "color": "red" },
     "Ranged Weapon": { "label": "Дальний бой", "labelEn": "Ranged Weapon", "color": "orange" },
     "Social": { "label": "Социализация", "labelEn": "Social", "color": "accent" },
+    "Performance": { "label": "Сценические навыки", "labelEn": "Performance", "color": "purple" },
     "Technique": { "label": "Техника", "labelEn": "Technique", "color": "cyan" }
   }
 }

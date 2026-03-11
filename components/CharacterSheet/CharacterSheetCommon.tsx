@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 
 export type TranslateFn = (ru: string, en: string) => string;
 
@@ -11,6 +11,12 @@ interface NumericFieldProps {
 }
 
 export function NumericField({ id, label, value, min = 0, onChange }: NumericFieldProps) {
+  const [draft, setDraft] = useState(String(value));
+
+  useEffect(() => {
+    setDraft(String(value));
+  }, [value]);
+
   return (
     <div className="group">
       <label htmlFor={id} className="block text-cyber-muted text-xs mb-2 group-focus-within:text-cyber-cyan transition-colors">
@@ -18,10 +24,38 @@ export function NumericField({ id, label, value, min = 0, onChange }: NumericFie
       </label>
       <input
         id={id}
-        type="number"
-        min={min}
-        value={value}
-        onChange={(event) => onChange(Math.max(min, parseInt(event.target.value, 10) || min))}
+        type="text"
+        inputMode="numeric"
+        value={draft}
+        onChange={(event) => {
+          const nextDraft = event.target.value;
+          if (nextDraft === '' || /^-?\d+$/.test(nextDraft)) {
+            setDraft(nextDraft);
+            if (nextDraft !== '') {
+              const parsed = parseInt(nextDraft, 10);
+              if (!Number.isNaN(parsed)) {
+                onChange(Math.max(min, parsed));
+              }
+            }
+          }
+        }}
+        onBlur={() => {
+          if (draft === '') {
+            onChange(min);
+            setDraft(String(min));
+            return;
+          }
+
+          const parsed = parseInt(draft, 10);
+          if (Number.isNaN(parsed)) {
+            setDraft(String(value));
+            return;
+          }
+
+          const normalized = Math.max(min, parsed);
+          onChange(normalized);
+          setDraft(String(normalized));
+        }}
         className="input w-full font-mono focus:border-cyber-cyan"
       />
     </div>

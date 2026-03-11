@@ -22,41 +22,41 @@ const contentByLanguage: Record<'ru' | 'en', PatchnotesContent> = {
     versionLabel: `Сравнение: v1.0.1 [BETA] -> ${APP_CONFIG.versionLabel}`,
     addedTitle: 'Что появилось нового',
     added: [
-      'Добавлен обновлённый контур «Что нового», который отражает актуальные изменения версии.',
-      'Добавлен rule-reference для NET Actions вместо старого хаусрульного калькулятора времени.',
-      'Добавлена раздельная модель брони для головы и корпуса в ресурсах персонажа и derived stats.'
+      'Добавлена отдельная категория «Сценические навыки» с актерским мастерством и игрой на инструментах.',
+      'Добавлены пропущенные образовательные навыки: знание языка, знание местности и наука.',
+      'PDF-экспорт переведён на прямую генерацию файла без браузерного окна печати и блокировки popup.'
     ],
     improvedTitle: 'Что стало лучше',
     improved: [
-      'Кардинально пересмотрен UX/UI: интерфейс стал чище, спокойнее, логичнее по иерархии и удобнее для длинной сессии.',
-      'Категории и состав навыков приведены к более цельной и последовательной структуре без старого разнобоя по неймингу.',
-      'Math-слой стал точнее: Interface, Humanity, HL и имплант-модификаторы теперь согласованы между UI, derived stats и тестами.',
-      'Языковой флоу стал стабильнее: route-language и локальное состояние больше не спорят между собой.',
-      'Путь сборки и тестов после миграции на Next выровнен: component/integration/a11y контуры снова проходят на актуальной архитектуре.'
+      'Числовые поля в чарнике стали вести себя спокойнее: значения теперь можно нормально очищать и вводить заново без борьбы с нулями и единицами.',
+      'Нейминг в чарнике и ролях стал последовательнее: Харизма, Скорость и Корпорат теперь выглядят как часть одной системы.',
+      'Сетка характеристик и блоки основных действий подровнены, чтобы чарник выглядел чище и не разваливался по ритму.',
+      'В хроме описания эффектов и конфликтов стали читаемыми для человека, а не похожими на системный вывод.',
+      'Блок про расчёты в разделе «О проекте» приведён к текущей модели ручных ресурсов и актуальной логике проекта.'
     ],
     fixedTitle: 'Что исправлено',
     fixed: [
-      'Ролевая способность больше не считается как обычный навык и отделена от базовых характеристик.',
-      'Убран верхний лимит 10 у навыков и характеристик для уже развивающегося персонажа.',
-      'Исправлена формула скорости: теперь MOVE даёт корректные 5 единиц скорости за 1 пункт характеристики.',
-      'Здоровье, человечность и броня переведены в ручные редактируемые ресурсы, чтобы их можно было вести по сессии без борьбы с формулами.',
-      'Навыки переразложены по более понятным категориям, а для боевых искусств и приёмов добавлены отдельные пользовательские слоты.'
+      'Исправлен ввод уровня, ранга способности, HP, человечности и брони: лишние стартовые цифры больше не мешают ручной правке.',
+      'У навыка «Судоходство» убрана ошибочная стоимость x2.',
+      'Для навыков «Подрывник», «Электроника / Безопасность» и «Парамедик» выставлена корректная стоимость x2.',
+      'В русском UI убрано смешение русского и английского в названиях и описаниях ролевых способностей.',
+      'Экспорт анкеты больше не падает из-за блокировки браузерного окна печати.'
     ],
     startTitle: 'Что тестировать в первую очередь',
     startSteps: [
-      'Прогнать навыки целиком: категории, состав списка, пагинацию и кастомные боевые слоты.',
-      'Проверить ресурсы персонажа: HP, Humanity, Armor Head, Armor Body.',
-      'Проверить RU/EN переключение с первого клика и поведение route-language.',
-      'Проверить PDF-экспорт и отображение новых броневых треков.',
-      'Проверить Netrunning -> вкладку «Время»: там теперь справочник по NET Actions, а не калькулятор хаусрулов.',
-      'Повторить ключевые сценарии на desktop и mobile.'
+      'Проверить ручной ввод в уровнях, ранге способности, HP, человечности и броне: очистка поля и повторный ввод должны работать без лишних цифр.',
+      'Проверить названия статов и ролей в русском UI: Харизма, Скорость, Корпорат, Мастер.',
+      'Прогнать ветки навыков «Образованность», «Сценические навыки» и «Техника», включая x2-модификаторы.',
+      'Открыть несколько имплантов в хроме и убедиться, что эффекты и конфликты показываются читаемо.',
+      'Проверить PDF-экспорт: анкета должна скачиваться сразу, без блокировки браузером.',
+      'Повторить ключевые сценарии чарника на desktop и mobile.'
     ],
     expectedTitle: 'Ожидаемый результат',
     expected: [
-      'Toolkit ближе к правилам Cyberpunk RED и не спорит сам с собой по математике.',
-      'Каталог навыков и ресурсы персонажа совпадают с текущим rule-contract проекта.',
-      'RU/EN, импорт, тестовый контур и производные расчёты работают предсказуемо.',
-      'Desktop и mobile остаются стабильными после последних архитектурных и rule-accuracy правок.'
+      'Чарник не раздражает на базовых ручных действиях и не заставляет бороться с полями ввода.',
+      'Навыки и роли выглядят последовательнее и ближе к ожидаемой терминологии игры.',
+      'Хром и PDF-экспорт воспринимаются как рабочие пользовательские инструменты, а не как технические заготовки.',
+      'Основные сценарии персонажа проходят стабильно и без визуально странных мелких косяков.'
     ]
   },
   en: {
@@ -64,41 +64,41 @@ const contentByLanguage: Record<'ru' | 'en', PatchnotesContent> = {
     versionLabel: `Compared: v1.0.1 [BETA] -> ${APP_CONFIG.versionLabel}`,
     addedTitle: 'What is new',
     added: [
-      'Added an updated What is New flow that now reflects the actual current version changes.',
-      'Added a NET Actions rule reference instead of the old house-rule timing calculator.',
-      'Added split armor tracking for head and body inside character resources and derived stats.'
+      'Added a dedicated Performance skill category with Acting and Play Instrument.',
+      'Added the missing education skills: Language, Local Expert, and Science.',
+      'Moved PDF export to direct file generation without the browser print window and popup blocking.'
     ],
     improvedTitle: 'What was improved',
     improved: [
-      'UX/UI was heavily reworked: the interface is cleaner, calmer, more readable, and more consistent over long sessions.',
-      'Skill categories and the skill list now follow a more coherent and consistent structure, without the old naming drift.',
-      'The math layer is more accurate: Interface, Humanity, HL, and implant modifiers are now aligned across UI, derived stats, and tests.',
-      'The language flow is more stable: route-language and local state no longer fight each other.',
-      'Build and test flows after the Next migration are aligned again: component, integration, and a11y checks work on the current architecture.'
+      'Numeric fields in the character sheet now behave more naturally when clearing and re-entering values.',
+      'Naming is more consistent across the sheet and role data, especially for Russian UI labels and role names.',
+      'The attribute grid and top action buttons were tightened up so the sheet feels cleaner and more balanced.',
+      'Cyberware effect and incompatibility descriptions now read like user-facing text instead of system output.',
+      'The calculations block in About now reflects the current manual resource model and live project logic.'
     ],
     fixedTitle: 'What was fixed',
     fixed: [
-      'Role ability is no longer calculated like a regular skill and now stands apart from base attributes.',
-      'The hard cap of 10 was removed from skills and attributes for characters that continue to grow after creation.',
-      'The speed formula was corrected: MOVE now gives the proper 5 speed per 1 point of the attribute.',
-      'Health, Humanity, and armor were moved into manual editable resource tracks so they can be managed session by session without fighting formulas.',
-      'Skills were reorganized into clearer categories, and custom slots were added for martial arts and combat maneuvers.'
+      'Input for level, role ability rank, HP, humanity, and armor no longer fights the user with leftover starter digits.',
+      'Pilot Sea Vehicle no longer has an incorrect x2 cost.',
+      'Demolitions, Electronics / Security Tech, and Paramedic now use the correct x2 cost.',
+      'Russian UI no longer mixes Russian and English in role ability names and descriptions.',
+      'Character sheet export no longer fails because of browser print popup blocking.'
     ],
     startTitle: 'What to test first',
     startSteps: [
-      'Run through the full skills flow: categories, list composition, pagination, and custom combat slots.',
-      'Check character resources: HP, Humanity, Armor Head, Armor Body.',
-      'Verify RU/EN switching on the first click and route-language behavior.',
-      'Check PDF export and the new armor track rendering.',
-      'Open Netrunning -> Time: it is now a NET Actions reference, not a house-rule calculator.',
-      'Repeat the key flows on desktop and mobile.'
+      'Check manual input in level, role ability rank, HP, humanity, and armor: clearing and retyping should work cleanly.',
+      'Verify Russian stat and role naming: Charisma, Speed, Corp, Maker.',
+      'Run through Education, Performance, and Technique skills, including x2 modifiers.',
+      'Open several cyberware items and verify that effects and incompatibilities are readable.',
+      'Check PDF export: the sheet should download directly without browser blocking.',
+      'Repeat the main character sheet flows on desktop and mobile.'
     ],
     expectedTitle: 'Expected outcome',
     expected: [
-      'The toolkit is closer to Cyberpunk RED rules and no longer contradicts itself in core math.',
-      'The skill catalog and character resources match the current project rule contract.',
-      'RU/EN, import, the test contour, and derived calculations behave predictably.',
-      'Desktop and mobile remain stable after the latest architecture and rule-accuracy pass.'
+      'The sheet should no longer feel annoying during basic manual edits.',
+      'Skills and roles should feel more coherent and closer to the expected game terminology.',
+      'Cyberware and PDF export should behave like real user-facing tools instead of technical prototypes.',
+      'Core character sheet flows should remain stable without small but obvious UI or logic hiccups.'
     ]
   }
 };

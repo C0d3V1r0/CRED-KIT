@@ -193,12 +193,19 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Кнопки */
 .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
   padding: 10px 18px;
   background: linear-gradient(145deg, color-mix(in srgb, var(--cyber-accent) 86%, #ef8d67), color-mix(in srgb, var(--cyber-accent-hover) 82%, #cb6a4d));
   border: 1px solid color-mix(in srgb, var(--cyber-accent) 52%, transparent);
   color: var(--text-inverse);
   font-weight: 600;
+  line-height: 1.1;
   letter-spacing: 0.01em;
+  text-align: center;
+  white-space: nowrap;
   border-radius: 10px;
   cursor: pointer;
   transition:
@@ -228,10 +235,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
   padding: 10px 18px;
   border: 1px solid color-mix(in srgb, var(--cyber-gray) 44%, transparent);
   color: var(--cyber-text);
   font-weight: 600;
+  line-height: 1.1;
+  text-align: center;
+  white-space: nowrap;
   border-radius: 10px;
   background: color-mix(in srgb, var(--surface-contrast) 88%, transparent);
   cursor: pointer;
@@ -265,11 +279,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-danger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
   padding: 10px 18px;
   background-color: color-mix(in srgb, #dc2626 22%, transparent);
   border: 1px solid color-mix(in srgb, var(--state-danger) 34%, transparent);
   color: #fbb7bf;
   font-weight: 600;
+  line-height: 1.1;
+  text-align: center;
+  white-space: nowrap;
   border-radius: 10px;
   cursor: pointer;
   transition: all var(--transition-fast) var(--motion-ease-standard);
@@ -284,6 +305,51 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-danger:active {
   transform: translateY(0);
+}
+
+.btn-warning {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 18px;
+  background: linear-gradient(
+    145deg,
+    color-mix(in srgb, var(--cyber-orange) 18%, transparent),
+    color-mix(in srgb, #7a3b2f 72%, transparent)
+  );
+  border: 1px solid color-mix(in srgb, var(--cyber-orange) 36%, transparent);
+  color: color-mix(in srgb, var(--cyber-orange) 88%, #ffd5b0);
+  font-weight: 600;
+  line-height: 1.1;
+  text-align: center;
+  white-space: nowrap;
+  border-radius: 10px;
+  cursor: pointer;
+  transition:
+    transform var(--transition-fast) var(--motion-ease-snappy),
+    box-shadow var(--transition-fast) var(--motion-ease-standard),
+    border-color var(--transition-fast) var(--motion-ease-standard),
+    filter var(--transition-fast) var(--motion-ease-standard);
+  box-shadow:
+    0 10px 18px rgba(0, 0, 0, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.btn-warning:hover {
+  background: linear-gradient(
+    145deg,
+    color-mix(in srgb, var(--cyber-orange) 24%, transparent),
+    color-mix(in srgb, #8a4737 78%, transparent)
+  );
+  border-color: color-mix(in srgb, var(--cyber-orange) 46%, transparent);
+  color: color-mix(in srgb, var(--cyber-orange) 92%, #fff2e2);
+  transform: translateY(-1px) scale(1.01);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-warning:active {
+  transform: translateY(0) scale(0.985);
 }
 
 .metric-chip {

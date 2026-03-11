@@ -2,6 +2,7 @@ import { Icons } from '../../utils/icons';
 import { formatCyberwareEffects, formatSlot } from '../../utils/dice';
 import { useLanguage } from '../../features/settings/model/hooks';
 import type { CompatibilityResult, Cyberware, CyberwareSlot } from '@/types';
+import standardImplants from '../../data/implants/standard.json';
 
 export const ZONE_SLOT_MAP: Record<string, CyberwareSlot[]> = {
   head: ['head_eye', 'head_ear', 'head_brain', 'head_other'],
@@ -48,6 +49,10 @@ export function getLocalizedImplantDescription(
 ): string {
   return locale === 'en' && implant.description_en ? implant.description_en : implant.description;
 }
+
+const IMPLANT_NAME_BY_ID = new Map(
+  (standardImplants as Array<Pick<Cyberware, 'id' | 'name' | 'name_en'>>).map((implant) => [implant.id, implant])
+);
 
 interface ImplantCardProps {
   implant: Cyberware;
@@ -196,7 +201,14 @@ export function ImplantDetails({
       {implant.incompatible && implant.incompatible.length > 0 && (
         <div className="mb-4 p-2.5 rounded-lg bg-cyber-orange/10 border border-cyber-orange/30">
           <span className="text-cyber-orange text-xs font-medium">{tr('Несовместим с', 'Incompatible with')}</span>
-          <p className="text-cyber-orange text-sm mt-1">{implant.incompatible.join(', ')}</p>
+          <p className="text-cyber-orange text-sm mt-1">
+            {implant.incompatible
+              .map((id) => {
+                const found = IMPLANT_NAME_BY_ID.get(id);
+                return found ? getLocalizedImplantName(found, language) : id;
+              })
+              .join(', ')}
+          </p>
         </div>
       )}
 
